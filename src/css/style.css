@@ -13,6 +13,15 @@
   background-size: 100px 100px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .pattern-bg {
+    background-color: #111827;
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(79, 70, 229, 0.2) 2%, transparent 0%),
+      radial-gradient(circle at 75px 75px, rgba(236, 72, 153, 0.2) 2%, transparent 0%);
+  }
+}
+
 /* Typography enhancements */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
@@ -39,6 +48,17 @@ body {
   margin-bottom: 0.75em;
 }
 
+@media (prefers-color-scheme: dark) {
+  .prose h1, 
+  .prose h2, 
+  .prose h3, 
+  .prose h4, 
+  .prose h5, 
+  .prose h6 {
+    color: #f3f4f6;
+  }
+}
+
 .prose h1 {
   font-size: 2.25rem;
   color: #4F46E5;
@@ -60,6 +80,12 @@ body {
   line-height: 1.7;
 }
 
+@media (prefers-color-scheme: dark) {
+  .prose p {
+    color: #e5e7eb;
+  }
+}
+
 .prose a {
   color: #4F46E5;
   font-weight: 500;
@@ -70,6 +96,17 @@ body {
 
 .prose a:hover {
   background-color: rgba(245, 158, 11, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose a {
+    color: #818cf8;
+    border-bottom-color: #FBBF24;
+  }
+  
+  .prose a:hover {
+    background-color: rgba(251, 191, 36, 0.1);
+  }
 }
 
 .prose ul {
@@ -83,6 +120,12 @@ body {
   margin-bottom: 0.5em;
 }
 
+@media (prefers-color-scheme: dark) {
+  .prose ul li {
+    color: #e5e7eb;
+  }
+}
+
 .prose ul li::before {
   content: "•";
   position: absolute;
@@ -90,6 +133,12 @@ body {
   color: #4F46E5;
   font-size: 1.25em;
   line-height: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose ul li::before {
+    color: #818cf8;
+  }
 }
 
 .prose blockquote {
@@ -101,12 +150,27 @@ body {
   margin: 1.5em 0;
 }
 
+@media (prefers-color-scheme: dark) {
+  .prose blockquote {
+    background-color: #1f2937;
+    border-left-color: #a78bfa;
+  }
+}
+
 .prose code {
   background-color: #f3f4f6;
   padding: 0.2em 0.4em;
   border-radius: 0.25em;
   font-size: 0.9em;
   border: 1px solid #e5e7eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose code {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #e5e7eb;
+  }
 }
 
 .prose pre {
@@ -125,32 +189,39 @@ body {
 
 /* Custom button styles */
 .btn {
-  @apply inline-block font-medium py-2 px-6 rounded-xl border-2 transform transition duration-200;
-}
-
-.btn:hover {
-  @apply translate-y-[-2px] shadow-soft;
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium transition-all duration-300 transform;
 }
 
 .btn-primary {
-  @apply bg-primary text-white border-primary hover:bg-primary-hover hover:border-primary-hover;
+  @apply bg-arcades-blue text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500;
 }
 
 .btn-secondary {
-  @apply bg-secondary text-white border-secondary hover:bg-secondary-hover hover:border-secondary-hover;
+  @apply bg-white text-arcades-blue border-2 border-arcades-blue hover:bg-arcades-blue hover:text-white 
+         dark:bg-gray-800 dark:text-blue-300 dark:border-blue-600 dark:hover:bg-blue-700;
 }
 
 .btn-accent {
-  @apply bg-accent text-white border-accent hover:bg-accent-hover hover:border-accent-hover;
+  @apply bg-arcades-orange text-white hover:bg-amber-600 dark:bg-amber-500 dark:hover:bg-amber-400;
+}
+
+.btn-icon {
+  @apply p-3 rounded-full;
 }
 
 /* Card styles */
 .card {
-  @apply bg-white rounded-xl shadow-soft overflow-hidden border border-gray-100 transition duration-200;
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-medium dark:shadow-dark-medium overflow-hidden;
 }
 
 .card:hover {
   @apply shadow-medium;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card:hover {
+    @apply shadow-dark-medium;
+  }
 }
 
 /* Tag styles */
@@ -169,4 +240,5 @@ body {
 
 .accent-border-left {
   border-left: 3px solid #F59E0B;
+} 
 } 
