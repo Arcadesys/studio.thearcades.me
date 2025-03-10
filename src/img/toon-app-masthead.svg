@@ -1,0 +1,24 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#4B6BFB" />
+  
+  <!-- Cartoon-style city skyline -->
+  <rect x="100" y="300" width="150" height="300" fill="#333" />
+  <rect x="300" y="200" width="120" height="400" fill="#444" />
+  <rect x="450" y="350" width="100" height="250" fill="#333" />
+  <rect x="600" y="250" width="180" height="350" fill="#444" />
+  <rect x="850" y="150" width="130" height="450" fill="#333" />
+  <rect x="1000" y="300" width="100" height="300" fill="#444" />
+  
+  <!-- Cartoon cat silhouette -->
+  <circle cx="600" cy="200" r="100" fill="#FFF" />
+  <circle cx="550" cy="170" r="20" fill="#000" />
+  <circle cx="650" cy="170" r="20" fill="#000" />
+  <path d="M 580 220 Q 600 240 620 220" stroke="#000" stroke-width="5" fill="none" />
+  <path d="M 520 120 L 550 170 L 500 180" fill="#FFF" stroke="#000" stroke-width="2" />
+  <path d="M 680 120 L 650 170 L 700 180" fill="#FFF" stroke="#000" stroke-width="2" />
+  
+  <!-- Title -->
+  <text x="600" y="400" font-family="Arial, sans-serif" font-size="60" font-weight="bold" text-anchor="middle" fill="#FFF">The Arcades' Studio</text>
+  <text x="600" y="470" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" fill="#FFF">Where Toons and Humans Code Together</text>
+</svg> 

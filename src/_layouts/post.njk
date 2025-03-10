@@ -1,0 +1,61 @@
+---
+layout: base.njk
+---
+
+<article class="max-w-4xl mx-auto bg-white rounded-xl shadow-medium overflow-hidden mb-8">
+  {% if image %}
+    <div class="w-full h-64 md:h-80 bg-gray-100 overflow-hidden border-b border-gray-200">
+      <img src="{{ image }}" alt="{{ title }}" class="w-full h-full object-cover">
+    </div>
+  {% endif %}
+  
+  <div class="p-6 md:p-8">
+    <header class="mb-8">
+      <h1 class="text-3xl md:text-4xl font-display font-bold text-arcades-blue mb-4">{{ title }}</h1>
+      {% if subtitle %}
+        <p class="text-xl md:text-2xl text-arcades-green mb-6 font-medium">{{ subtitle }}</p>
+      {% endif %}
+      
+      <div class="flex flex-wrap items-center justify-between gap-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <div class="flex items-center text-gray-700">
+          <time datetime="{{ page.date | dateIso }}" class="bg-white px-3 py-1 rounded-lg border border-gray-200 text-sm">{{ page.date | dateReadable }}</time>
+          {% if author %}
+            <span class="mx-2">•</span>
+            <span class="bg-arcades-pink text-white px-3 py-1 rounded-lg text-sm">{{ author }}</span>
+          {% endif %}
+        </div>
+        
+        {% if tags %}
+          <div class="flex flex-wrap gap-2">
+            {% for tag in tags %}
+              {% if tag != "post" %}
+                <a href="/tags/{{ tag }}/" class="tag bg-arcades-blue bg-opacity-10 text-arcades-blue hover:bg-arcades-blue hover:text-white">{{ tag }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </header>
+    
+    <div class="prose lg:prose-xl max-w-none">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>
+
+{% if tags %}
+  <div class="max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-medium mb-8">
+    <h2 class="text-2xl font-display font-bold text-arcades-purple mb-6">Tag Cloud</h2>
+    <div class="flex flex-wrap gap-3">
+      {% for tag in tags %}
+        {% if tag != "post" %}
+          <a href="/tags/{{ tag }}/" 
+             class="tag bg-white border border-gray-200 hover:bg-arcades-{{ loop.index % 5 + 1 | string }} hover:text-white hover:border-arcades-{{ loop.index % 5 + 1 | string }}"
+             style="font-size: {{ (1 + loop.index / 10) }}rem">
+            {{ tag }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %} 

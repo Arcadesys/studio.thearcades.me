@@ -1,0 +1,84 @@
+---
+layout: base.njk
+title: Blog | The Arcades' Studio
+---
+
+<div class="max-w-5xl mx-auto">
+  <div class="text-center mb-12">
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 inline-block text-arcades-blue">
+      Blog
+    </h1>
+    
+    <p class="text-xl bg-white p-4 rounded-lg shadow-soft inline-block max-w-2xl">
+      Welcome to my blog! Here you'll find my thoughts, tutorials, and updates on various topics.
+    </p>
+  </div>
+  
+  {% if collections.tagList.length > 0 %}
+    <div class="bg-white p-6 rounded-xl shadow-medium mb-12">
+      <h2 class="text-2xl font-display font-bold text-arcades-orange mb-6">Browse by Tag</h2>
+      <div class="flex flex-wrap gap-3">
+        {% for tag in collections.tagList %}
+          <a href="/tags/{{ tag }}/" 
+             class="tag bg-white border border-gray-200 hover:bg-arcades-{{ loop.index % 5 + 1 | string }} hover:text-white hover:border-arcades-{{ loop.index % 5 + 1 | string }}"
+             style="font-size: {{ (1 + loop.index / 15) }}rem">
+            {{ tag }}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+  
+  <div class="space-y-8">
+    {%- for post in collections.post | reverse -%}
+      <article class="card hover:-translate-y-1 transition duration-300">
+        <div class="flex flex-col md:flex-row">
+          {% if post.data.image %}
+            <div class="w-full md:w-1/3 h-48 bg-gray-100 overflow-hidden">
+              <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="w-full h-full object-cover">
+            </div>
+          {% endif %}
+          
+          <div class="{% if post.data.image %}md:w-2/3{% else %}w-full{% endif %} p-6">
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-3">
+              <a href="{{ post.url }}" class="text-arcades-blue hover:text-arcades-purple transition">{{ post.data.title }}</a>
+            </h2>
+            
+            <div class="flex flex-wrap gap-2 mb-3">
+              <time datetime="{{ post.date | dateIso }}" class="bg-gray-100 px-3 py-1 rounded-lg text-sm">{{ post.date | dateReadable }}</time>
+              {% if post.data.author %}
+                <span class="bg-arcades-pink text-white px-3 py-1 rounded-lg text-sm">{{ post.data.author }}</span>
+              {% endif %}
+            </div>
+            
+            {% if post.data.subtitle %}
+              <p class="text-lg text-arcades-green font-medium mb-3">{{ post.data.subtitle }}</p>
+            {% endif %}
+            
+            {% if post.data.description %}
+              <p class="mb-4 text-gray-700">{{ post.data.description }}</p>
+            {% endif %}
+            
+            {% if post.data.tags %}
+              <div class="flex flex-wrap gap-2 mb-4">
+                {% for tag in post.data.tags %}
+                  {% if tag != "post" %}
+                    <a href="/tags/{{ tag }}/" class="tag bg-arcades-blue bg-opacity-10 text-arcades-blue hover:bg-arcades-blue hover:text-white">{{ tag }}</a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+            
+            <a href="{{ post.url }}" class="btn btn-primary">Read more</a>
+          </div>
+        </div>
+      </article>
+    {%- endfor -%}
+    
+    {% if collections.post.length === 0 %}
+      <div class="bg-white p-8 rounded-xl shadow-medium text-center">
+        <p class="text-2xl font-display text-gray-500">No posts yet. Check back soon!</p>
+      </div>
+    {% endif %}
+  </div>
+</div> 

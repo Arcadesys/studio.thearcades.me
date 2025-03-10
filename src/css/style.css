@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+
+/* Pattern background */
+.pattern-bg {
+  background-color: #f9fafb;
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(79, 70, 229, 0.1) 2%, transparent 0%),
+    radial-gradient(circle at 75px 75px, rgba(236, 72, 153, 0.1) 2%, transparent 0%);
+  background-size: 100px 100px;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Prose customization for blog content */
+.prose {
+  max-width: 100%;
+}
+
+.prose h1, 
+.prose h2, 
+.prose h3, 
+.prose h4, 
+.prose h5, 
+.prose h6 {
+  font-family: 'Poppins', sans-serif;
+  color: #111827;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.prose h1 {
+  font-size: 2.25rem;
+  color: #4F46E5;
+}
+
+.prose h2 {
+  font-size: 1.75rem;
+  color: #10B981;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  color: #8B5CF6;
+}
+
+.prose p {
+  margin-bottom: 1.25em;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.prose a {
+  color: #4F46E5;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 2px solid #F59E0B;
+  transition: background-color 0.2s;
+}
+
+.prose a:hover {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.prose ul {
+  list-style-type: none;
+  padding-left: 1.5em;
+}
+
+.prose ul li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4F46E5;
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+.prose blockquote {
+  border-left: 4px solid #8B5CF6;
+  padding: 0.75em 1.25em;
+  background-color: #f9fafb;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  margin: 1.5em 0;
+}
+
+.prose code {
+  background-color: #f3f4f6;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-size: 0.9em;
+  border: 1px solid #e5e7eb;
+}
+
+.prose pre {
+  background-color: #1e293b;
+  border-radius: 0.5rem;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  color: #f3f4f6;
+}
+
+/* Custom button styles */
+.btn {
+  @apply inline-block font-medium py-2 px-6 rounded-xl border-2 transform transition duration-200;
+}
+
+.btn:hover {
+  @apply translate-y-[-2px] shadow-soft;
+}
+
+.btn-primary {
+  @apply bg-primary text-white border-primary hover:bg-primary-hover hover:border-primary-hover;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white border-secondary hover:bg-secondary-hover hover:border-secondary-hover;
+}
+
+.btn-accent {
+  @apply bg-accent text-white border-accent hover:bg-accent-hover hover:border-accent-hover;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-xl shadow-soft overflow-hidden border border-gray-100 transition duration-200;
+}
+
+.card:hover {
+  @apply shadow-medium;
+}
+
+/* Tag styles */
+.tag {
+  @apply inline-block px-3 py-1 text-sm font-medium rounded-lg transition duration-200;
+}
+
+.tag:hover {
+  @apply transform -translate-y-1;
+}
+
+/* Whimsical elements */
+.accent-border-bottom {
+  border-bottom: 3px solid #F59E0B;
+}
+
+.accent-border-left {
+  border-left: 3px solid #F59E0B;
+} 

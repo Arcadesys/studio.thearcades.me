@@ -1,0 +1,25 @@
+{
+  "name": "studio.thearcades.me",
+  "version": "1.0.0",
+  "description": "The Arcades Studio - A blog and portfolio site",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy && npx tailwindcss -i ./src/css/style.css -o ./_site/css/style.css --minify",
+    "dev": "npx @11ty/eleventy --serve & npx tailwindcss -i ./src/css/style.css -o ./_site/css/style.css --watch",
+    "start": "npm run dev"
+  },
+  "keywords": [
+    "eleventy",
+    "blog",
+    "tailwindcss"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@tailwindcss/typography": "^0.5.16",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1"
+  }
+}
