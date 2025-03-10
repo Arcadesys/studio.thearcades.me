@@ -6,190 +6,36 @@
 
 /* Pattern background */
 .pattern-bg {
-  background-color: #f9fafb;
-  background-image: 
-    radial-gradient(circle at 25px 25px, rgba(79, 70, 229, 0.1) 2%, transparent 0%),
-    radial-gradient(circle at 75px 75px, rgba(236, 72, 153, 0.1) 2%, transparent 0%);
-  background-size: 100px 100px;
+  @apply bg-light opacity-50;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-@media (prefers-color-scheme: dark) {
-  .pattern-bg {
-    background-color: #111827;
-    background-image: 
-      radial-gradient(circle at 25px 25px, rgba(79, 70, 229, 0.2) 2%, transparent 0%),
-      radial-gradient(circle at 75px 75px, rgba(236, 72, 153, 0.2) 2%, transparent 0%);
-  }
+.dark .pattern-bg {
+  @apply bg-dark opacity-30;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Typography enhancements */
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+  @apply font-display;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
+p {
+  @apply font-body;
 }
 
-/* Prose customization for blog content */
-.prose {
-  max-width: 100%;
+/* Accent border bottom */
+.accent-border-bottom {
+  @apply border-b-3 border-accent;
 }
 
-.prose h1, 
-.prose h2, 
-.prose h3, 
-.prose h4, 
-.prose h5, 
-.prose h6 {
-  font-family: 'Poppins', sans-serif;
-  color: #111827;
-  margin-top: 1.5em;
-  margin-bottom: 0.75em;
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose h1, 
-  .prose h2, 
-  .prose h3, 
-  .prose h4, 
-  .prose h5, 
-  .prose h6 {
-    color: #f3f4f6;
-  }
-}
-
-.prose h1 {
-  font-size: 2.25rem;
-  color: #4F46E5;
-}
-
-.prose h2 {
-  font-size: 1.75rem;
-  color: #10B981;
-}
-
-.prose h3 {
-  font-size: 1.5rem;
-  color: #8B5CF6;
-}
-
-.prose p {
-  margin-bottom: 1.25em;
-  font-size: 1.125rem;
-  line-height: 1.7;
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose p {
-    color: #e5e7eb;
-  }
-}
-
-.prose a {
-  color: #4F46E5;
-  font-weight: 500;
-  text-decoration: none;
-  border-bottom: 2px solid #F59E0B;
-  transition: background-color 0.2s;
-}
-
-.prose a:hover {
-  background-color: rgba(245, 158, 11, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose a {
-    color: #818cf8;
-    border-bottom-color: #FBBF24;
-  }
-  
-  .prose a:hover {
-    background-color: rgba(251, 191, 36, 0.1);
-  }
-}
-
-.prose ul {
-  list-style-type: none;
-  padding-left: 1.5em;
-}
-
-.prose ul li {
-  position: relative;
-  padding-left: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose ul li {
-    color: #e5e7eb;
-  }
-}
-
-.prose ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #4F46E5;
-  font-size: 1.25em;
-  line-height: 1;
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose ul li::before {
-    color: #818cf8;
-  }
-}
-
-.prose blockquote {
-  border-left: 4px solid #8B5CF6;
-  padding: 0.75em 1.25em;
-  background-color: #f9fafb;
-  border-radius: 0 0.5rem 0.5rem 0;
-  font-style: italic;
-  margin: 1.5em 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose blockquote {
-    background-color: #1f2937;
-    border-left-color: #a78bfa;
-  }
-}
-
-.prose code {
-  background-color: #f3f4f6;
-  padding: 0.2em 0.4em;
-  border-radius: 0.25em;
-  font-size: 0.9em;
-  border: 1px solid #e5e7eb;
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose code {
-    background-color: #1f2937;
-    border-color: #374151;
-    color: #e5e7eb;
-  }
-}
-
-.prose pre {
-  background-color: #1e293b;
-  border-radius: 0.5rem;
-  padding: 1em;
-  overflow-x: auto;
-}
-
-.prose pre code {
-  background-color: transparent;
-  padding: 0;
-  border: none;
-  color: #f3f4f6;
-}
-
-/* Custom button styles */
+/* Buttons */
 .btn {
   @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium transition-all duration-300 transform;
+}
+
+.btn:hover {
+  @apply translate-y-[-2px];
 }
 
 .btn-primary {
@@ -209,7 +55,7 @@ body {
   @apply p-3 rounded-full;
 }
 
-/* Card styles */
+/* Cards */
 .card {
   @apply bg-white dark:bg-gray-800 rounded-xl shadow-medium dark:shadow-dark-medium overflow-hidden;
 }
@@ -218,27 +64,56 @@ body {
   @apply shadow-medium;
 }
 
-@media (prefers-color-scheme: dark) {
-  .card:hover {
-    @apply shadow-dark-medium;
-  }
+.dark .card:hover {
+  @apply shadow-dark-medium;
 }
 
-/* Tag styles */
+/* Tags */
 .tag {
-  @apply inline-block px-3 py-1 text-sm font-medium rounded-lg transition duration-200;
+  @apply inline-block px-3 py-1 rounded-lg text-sm font-medium transition duration-200;
 }
 
-.tag:hover {
-  @apply transform -translate-y-1;
+/* Prose overrides */
+.prose {
+  @apply max-w-none;
 }
 
-/* Whimsical elements */
-.accent-border-bottom {
-  border-bottom: 3px solid #F59E0B;
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  @apply font-display text-arcades-blue dark:text-blue-300;
 }
 
-.accent-border-left {
-  border-left: 3px solid #F59E0B;
-} 
+.prose a {
+  @apply text-arcades-purple dark:text-purple-300 no-underline hover:underline;
+}
+
+.prose blockquote {
+  @apply border-l-5 border-arcades-orange dark:border-orange-400 bg-orange-50 dark:bg-gray-800 p-4 rounded-r-lg;
+}
+
+.prose blockquote p {
+  @apply text-arcades-orange dark:text-orange-300 font-medium;
+}
+
+.prose pre {
+  @apply bg-gray-800 dark:bg-gray-900 text-white p-4 rounded-lg;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-800 text-arcades-pink dark:text-pink-300 px-1 py-0.5 rounded;
+}
+
+.prose pre code {
+  @apply bg-transparent text-gray-200 p-0;
+}
+
+.prose img {
+  @apply rounded-lg shadow-medium dark:shadow-dark-medium;
+}
+
+.prose ul li::before {
+  @apply text-arcades-green dark:text-green-300;
+}
+
+.prose ol li::before {
+  @apply text-arcades-blue dark:text-blue-300 font-display font-bold;
 } 

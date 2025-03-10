@@ -6,6 +6,29 @@
   <title>{{ title | default("The Arcades' Studio") }}</title>
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    // Check for saved theme preference or use the system preference
+    const theme = localStorage.getItem('theme') || 'system';
+    
+    // Function to set the theme
+    function setTheme(theme) {
+      if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+    
+    // Set initial theme
+    setTheme(theme);
+    
+    // Listen for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if (localStorage.getItem('theme') === 'system') {
+        setTheme('system');
+      }
+    });
+  </script>
 </head>
 <body class="bg-light dark:bg-dark min-h-screen">
   <div class="pattern-bg fixed inset-0 z-0"></div>
@@ -16,30 +39,50 @@
         <h1 class="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-white text-center md:text-left mb-4 md:mb-0">
           <a href="/" class="inline-block accent-border-bottom pb-1">The Arcades' Studio</a>
         </h1>
-        <nav>
-          <ul class="flex flex-wrap justify-center md:justify-end gap-3">
-            <li>
-              <a href="/" class="inline-block px-4 py-2 rounded-lg text-arcades-blue dark:text-blue-300 hover:bg-arcades-blue hover:text-white font-medium transition duration-200">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="/blog" class="inline-block px-4 py-2 rounded-lg text-arcades-green dark:text-green-300 hover:bg-arcades-green hover:text-white font-medium transition duration-200">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="/about" class="inline-block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-arcades-purple hover:text-white font-medium transition duration-200">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="/contact" class="inline-block px-4 py-2 rounded-lg text-arcades-pink dark:text-pink-300 hover:bg-arcades-pink hover:text-white font-medium transition duration-200">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div class="flex flex-col md:flex-row items-center">
+          <nav class="mb-4 md:mb-0 md:mr-4">
+            <ul class="flex flex-wrap justify-center md:justify-end gap-3">
+              <li>
+                <a href="/" class="inline-block px-4 py-2 rounded-lg text-arcades-blue dark:text-blue-300 hover:bg-arcades-blue hover:text-white font-medium transition duration-200">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/blog" class="inline-block px-4 py-2 rounded-lg text-arcades-green dark:text-green-300 hover:bg-arcades-green hover:text-white font-medium transition duration-200">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="/about" class="inline-block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-arcades-purple hover:text-white font-medium transition duration-200">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="/contact" class="inline-block px-4 py-2 rounded-lg text-arcades-pink dark:text-pink-300 hover:bg-arcades-pink hover:text-white font-medium transition duration-200">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+          
+          <div class="theme-toggle flex items-center gap-2 bg-gray-100 dark:bg-gray-700 p-2 rounded-lg">
+            <button id="theme-light" class="p-2 rounded-lg" aria-label="Light mode">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </button>
+            <button id="theme-dark" class="p-2 rounded-lg" aria-label="Dark mode">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </button>
+            <button id="theme-system" class="p-2 rounded-lg" aria-label="System preference">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -56,5 +99,46 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Theme toggle functionality
+    document.getElementById('theme-light').addEventListener('click', () => {
+      localStorage.setItem('theme', 'light');
+      setTheme('light');
+      updateActiveThemeButton('light');
+    });
+    
+    document.getElementById('theme-dark').addEventListener('click', () => {
+      localStorage.setItem('theme', 'dark');
+      setTheme('dark');
+      updateActiveThemeButton('dark');
+    });
+    
+    document.getElementById('theme-system').addEventListener('click', () => {
+      localStorage.setItem('theme', 'system');
+      setTheme('system');
+      updateActiveThemeButton('system');
+    });
+    
+    // Update active button styling
+    function updateActiveThemeButton(activeTheme) {
+      const buttons = {
+        light: document.getElementById('theme-light'),
+        dark: document.getElementById('theme-dark'),
+        system: document.getElementById('theme-system')
+      };
+      
+      // Remove active class from all buttons
+      Object.values(buttons).forEach(button => {
+        button.classList.remove('bg-white', 'dark:bg-gray-600');
+      });
+      
+      // Add active class to selected button
+      buttons[activeTheme].classList.add('bg-white', 'dark:bg-gray-600');
+    }
+    
+    // Set initial active button
+    updateActiveThemeButton(localStorage.getItem('theme') || 'system');
+  </script>
 </body>
 </html> 

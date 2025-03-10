@@ -4,7 +4,7 @@ module.exports = {
     "./src/**/*.{html,js,njk,md}",
     "./.eleventy.js"
   ],
-  darkMode: 'media', // Enables dark mode based on user's system preferences
+  darkMode: 'class', // Changed from 'media' to 'class' for manual toggle
   theme: {
     extend: {
       colors: {
