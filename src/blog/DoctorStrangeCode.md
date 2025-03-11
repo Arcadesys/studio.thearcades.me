@@ -154,12 +154,11 @@ But I've got a lot more control over where it goes.
 
 ---
 
-<div class="bg-gradient-to-br from-arcades-blue/10 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/10 p-8 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300 mt-8">
-  <h2 class="text-2xl font-display font-bold mb-4 text-arcades-blue dark:text-blue-300">Want to follow my AI-assisted creative journey?</h2>
-  <p class="text-gray-700 dark:text-gray-300 mb-6">
-    Subscribe to my newsletter to get updates on new posts, projects, and insights about using AI to enhance your creative workflow. Perfect for both toons and humans in Clampett City!
-  </p>
-  <div class="text-center">
-    <a href="/#subscription-form" class="btn btn-primary">Subscribe to Newsletter</a>
-  </div>
+<div class="text-center mt-8 mb-4">
+  <a href="/#subscription-form" class="btn btn-primary inline-flex items-center group">
+    <span class="group-hover:mr-2 transition-all">Subscribe for More Vibe-Coding Tips</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+    </svg>
+  </a>
 </div>
