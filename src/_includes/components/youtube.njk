@@ -1,0 +1,19 @@
+{% macro youtube(id, title = 'YouTube video', startTime = 0) %}
+<div class="youtube-embed bg-white/90 dark:bg-gray-800/90 p-4 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300 mb-8">
+  <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-lg">
+    <iframe 
+      class="absolute top-0 left-0 w-full h-full"
+      src="https://www.youtube.com/embed/{{ id }}{% if startTime > 0 %}?start={{ startTime }}{% endif %}"
+      title="{{ title }}"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+  {% if title and title != 'YouTube video' %}
+  <div class="mt-4 text-center">
+    <p class="text-lg font-medium text-gray-700 dark:text-gray-300">{{ title }}</p>
+  </div>
+  {% endif %}
+</div>
+{% endmacro %} 
