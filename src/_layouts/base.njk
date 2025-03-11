@@ -9,16 +9,53 @@
   <link rel="alternate" href="{{ site.url }}/feed.xml" type="application/atom+xml" title="{{ site.title }}">
   <link rel="alternate" href="{{ site.url }}/feed.json" type="application/json" title="{{ site.title }}">
   <script>
-    // Check for saved theme preference or use the system preference
-    let theme = 'system';
-    try {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        theme = savedTheme;
+    // Safe storage implementation that handles errors gracefully
+    const safeStorage = {
+      data: {
+        theme: 'system' // Default value
+      },
+      get: function(key) {
+        // First try to get from our in-memory object
+        if (this.data[key] !== undefined) {
+          return this.data[key];
+        }
+        
+        // Then try localStorage, but catch any errors
+        if (typeof window.localStorage !== 'undefined') {
+          try {
+            const value = window.localStorage.getItem(key);
+            if (value !== null) {
+              this.data[key] = value; // Cache it
+              return value;
+            }
+          } catch (e) {
+            // Silently fail and use default
+          }
+        }
+        
+        // Return default if nothing else worked
+        return this.data[key] || null;
+      },
+      set: function(key, value) {
+        // Always update our in-memory object
+        this.data[key] = value;
+        
+        // Then try localStorage, but catch any errors
+        if (typeof window.localStorage !== 'undefined') {
+          try {
+            window.localStorage.setItem(key, value);
+            return true;
+          } catch (e) {
+            // Silently fail, but we still updated our in-memory object
+          }
+        }
+        
+        return false;
       }
-    } catch (e) {
-      console.warn('Could not access localStorage for theme preference');
-    }
+    };
+    
+    // Check for saved theme preference or use the system preference
+    const theme = safeStorage.get('theme') || 'system';
     
     // Function to set the theme
     function setTheme(theme) {
@@ -34,12 +71,7 @@
     
     // Listen for system preference changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      try {
-        if (localStorage.getItem('theme') === 'system') {
-          setTheme('system');
-        }
-      } catch (e) {
-        // Fallback to system preference if localStorage is not available
+      if (safeStorage.get('theme') === 'system') {
         setTheme('system');
       }
     });
@@ -189,31 +221,19 @@
   <script>
     // Theme toggle functionality
     document.getElementById('theme-light').addEventListener('click', () => {
-      try {
-        localStorage.setItem('theme', 'light');
-      } catch (e) {
-        console.warn('Could not save theme preference to localStorage');
-      }
+      safeStorage.set('theme', 'light');
       setTheme('light');
       updateActiveThemeButton('light');
     });
     
     document.getElementById('theme-dark').addEventListener('click', () => {
-      try {
-        localStorage.setItem('theme', 'dark');
-      } catch (e) {
-        console.warn('Could not save theme preference to localStorage');
-      }
+      safeStorage.set('theme', 'dark');
       setTheme('dark');
       updateActiveThemeButton('dark');
     });
     
     document.getElementById('theme-system').addEventListener('click', () => {
-      try {
-        localStorage.setItem('theme', 'system');
-      } catch (e) {
-        console.warn('Could not save theme preference to localStorage');
-      }
+      safeStorage.set('theme', 'system');
       setTheme('system');
       updateActiveThemeButton('system');
     });
@@ -236,12 +256,7 @@
     }
     
     // Set initial active button
-    try {
-      const savedTheme = localStorage.getItem('theme');
-      updateActiveThemeButton(savedTheme || 'system');
-    } catch (e) {
-      updateActiveThemeButton('system');
-    }
+    updateActiveThemeButton(safeStorage.get('theme') || 'system');
   </script>
 </body>
 </html> 
