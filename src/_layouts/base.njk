@@ -98,72 +98,122 @@
   <div class="fixed top-20 right-[10%] w-64 h-64 bg-arcades-blue opacity-10 dark:opacity-20 rounded-full blur-3xl z-0 animate-float"></div>
   <div class="fixed bottom-20 left-[10%] w-80 h-80 bg-arcades-pink opacity-10 dark:opacity-20 rounded-full blur-3xl z-0 animate-float" style="animation-delay: 2s;"></div>
   
-  <header class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-b-3 border-accent py-4 sticky top-0 z-50 shadow-soft dark:shadow-dark-soft">
+  <header id="site-header" class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-b-3 border-accent py-4 sticky top-0 z-50 shadow-soft dark:shadow-dark-soft transition-transform duration-300">
     <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-        <h1 class="text-2xl md:text-3xl font-display font-bold text-center md:text-left mb-4 md:mb-0">
+      <div class="flex flex-row items-center justify-between">
+        <!-- Hamburger Menu Button (visible on mobile) -->
+        <button id="hamburger-menu" class="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        
+        <!-- Logo/Site Title -->
+        <h1 class="text-2xl md:text-3xl font-display font-bold">
           <a href="/" class="inline-block accent-border-bottom pb-1 text-gray-900 dark:text-white hover:text-arcades-blue dark:hover:text-arcades-orange transition-colors">
             <span class="text-arcades-orange dark:text-arcades-orange">Studio</span> | The Arcades
           </a>
         </h1>
-        <div class="flex flex-col md:flex-row items-center">
-          <nav class="mb-4 md:mb-0 md:mr-4">
-            <ul class="flex flex-wrap justify-center md:justify-end gap-3">
-              <li>
-                <a href="/" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-blue dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 font-medium transition duration-200">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/projects" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 font-medium transition duration-200">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="/blog" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-green dark:text-green-300 hover:bg-green-50 dark:hover:bg-green-900/30 font-medium transition duration-200">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.thearcades.me/previews" target="_blank" rel="noopener noreferrer" class="nav-link inline-flex items-center px-4 py-2 rounded-lg text-arcades-orange dark:text-orange-300 hover:bg-orange-50 dark:hover:bg-orange-900/30 font-medium transition duration-200">
-                  Books
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="/about" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 font-medium transition duration-200">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="/contact" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-pink dark:text-pink-300 hover:bg-pink-50 dark:hover:bg-pink-900/30 font-medium transition duration-200">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </nav>
-          
-          <div class="theme-toggle flex items-center gap-2 bg-gray-100 dark:bg-gray-700 p-2 rounded-lg">
-            <button id="theme-light" class="p-2 rounded-lg transition-transform hover:scale-110" aria-label="Light mode">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </button>
-            <button id="theme-dark" class="p-2 rounded-lg transition-transform hover:scale-110" aria-label="Dark mode">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-              </svg>
-            </button>
-            <button id="theme-system" class="p-2 rounded-lg transition-transform hover:scale-110" aria-label="System preference">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </button>
-          </div>
+        
+        <!-- Theme Toggle (always visible) -->
+        <div class="theme-toggle flex items-center gap-2 bg-gray-100 dark:bg-gray-700 p-2 rounded-lg">
+          <button id="theme-light" class="p-2 rounded-lg transition-transform hover:scale-110" aria-label="Light mode">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </button>
+          <button id="theme-dark" class="p-2 rounded-lg transition-transform hover:scale-110" aria-label="Dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+          <button id="theme-system" class="p-2 rounded-lg transition-transform hover:scale-110" aria-label="System preference">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </button>
         </div>
       </div>
+      
+      <!-- Mobile Navigation Menu (hidden by default) -->
+      <div id="mobile-nav" class="hidden mt-4 md:hidden">
+        <nav class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-xl shadow-soft dark:shadow-dark-soft">
+          <ul class="flex flex-col space-y-2">
+            <li>
+              <a href="/" class="nav-link block px-4 py-2 rounded-lg text-arcades-blue dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 font-medium transition duration-200">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="/projects" class="nav-link block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 font-medium transition duration-200">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="/blog" class="nav-link block px-4 py-2 rounded-lg text-arcades-green dark:text-green-300 hover:bg-green-50 dark:hover:bg-green-900/30 font-medium transition duration-200">
+                Blog
+              </a>
+            </li>
+            <li>
+              <a href="https://www.thearcades.me/previews" target="_blank" rel="noopener noreferrer" class="nav-link flex items-center px-4 py-2 rounded-lg text-arcades-orange dark:text-orange-300 hover:bg-orange-50 dark:hover:bg-orange-900/30 font-medium transition duration-200">
+                Books
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="/about" class="nav-link block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 font-medium transition duration-200">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="/contact" class="nav-link block px-4 py-2 rounded-lg text-arcades-pink dark:text-pink-300 hover:bg-pink-50 dark:hover:bg-pink-900/30 font-medium transition duration-200">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
+      <!-- Desktop Navigation (hidden on mobile) -->
+      <nav class="hidden md:block mt-4">
+        <ul class="flex flex-wrap justify-center md:justify-end gap-3">
+          <li>
+            <a href="/" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-blue dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 font-medium transition duration-200">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/projects" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 font-medium transition duration-200">
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="/blog" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-green dark:text-green-300 hover:bg-green-50 dark:hover:bg-green-900/30 font-medium transition duration-200">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="https://www.thearcades.me/previews" target="_blank" rel="noopener noreferrer" class="nav-link inline-flex items-center px-4 py-2 rounded-lg text-arcades-orange dark:text-orange-300 hover:bg-orange-50 dark:hover:bg-orange-900/30 font-medium transition duration-200">
+              Books
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="/about" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 font-medium transition duration-200">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-pink dark:text-pink-300 hover:bg-pink-50 dark:hover:bg-pink-900/30 font-medium transition duration-200">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -240,6 +290,34 @@
           setTheme('system');
         });
       }
+      
+      // Hamburger menu functionality
+      const hamburgerButton = document.getElementById('hamburger-menu');
+      const mobileNav = document.getElementById('mobile-nav');
+      
+      if (hamburgerButton && mobileNav) {
+        hamburgerButton.addEventListener('click', () => {
+          mobileNav.classList.toggle('hidden');
+        });
+      }
+      
+      // Scroll behavior for header
+      const header = document.getElementById('site-header');
+      let lastScrollTop = 0;
+      
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down & past threshold
+          header.style.transform = 'translateY(-100%)';
+        } else {
+          // Scrolling up or at top
+          header.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop;
+      });
     });
   </script>
 </body>
