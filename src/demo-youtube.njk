@@ -1,0 +1,58 @@
+---
+layout: base.njk
+title: YouTube Demo | Studio | The Arcades
+---
+
+{% from "components/youtube.njk" import youtube %}
+
+<div class="max-w-5xl mx-auto">
+  <div class="text-center mb-16">
+    <h1 class="gradient-text mb-8">
+      YouTube Video Embeds
+    </h1>
+    
+    <p class="text-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-soft dark:shadow-dark-soft inline-block max-w-2xl dark:text-gray-300 border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300">
+      Examples of how to embed YouTube videos on your site.
+    </p>
+  </div>
+  
+  <div class="mt-16 bg-gradient-to-br from-arcades-purple/10 to-purple-100 dark:from-purple-900/20 dark:to-purple-900/10 p-8 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-purple dark:hover:border-purple-500 transition-all duration-300">
+    <h2 class="text-3xl font-display font-bold mb-8 text-arcades-purple dark:text-purple-300 text-center">How to Use</h2>
+    
+    <div class="bg-white/90 dark:bg-gray-800/90 p-6 rounded-xl shadow-soft dark:shadow-dark-soft mb-8">
+      <p class="text-gray-700 dark:text-gray-300 mb-4">
+        To embed a YouTube video on any page, first import the component at the top of your .njk file:
+      </p>
+      <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg overflow-x-auto text-sm">
+<code>{% raw %}{% from "components/youtube.njk" import youtube %}{% endraw %}</code>
+      </pre>
+      
+      <p class="text-gray-700 dark:text-gray-300 mt-6 mb-4">
+        Then use it anywhere in your content:
+      </p>
+      <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg overflow-x-auto text-sm">
+<code>{% raw %}{{ youtube("dQw4w9WgXcQ", "Rick Astley - Never Gonna Give You Up") }}{% endraw %}</code>
+      </pre>
+      
+      <p class="text-gray-700 dark:text-gray-300 mt-6 mb-4">
+        You can also specify a start time in seconds:
+      </p>
+      <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg overflow-x-auto text-sm">
+<code>{% raw %}{{ youtube("dQw4w9WgXcQ", "Rick Astley - Never Gonna Give You Up", 30) }}{% endraw %}</code>
+      </pre>
+    </div>
+  </div>
+  
+  <div class="mt-16 bg-gradient-to-br from-arcades-blue/10 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/10 p-8 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300">
+    <h2 class="text-3xl font-display font-bold mb-8 text-arcades-blue dark:text-blue-300 text-center">Examples</h2>
+    
+    <h3 class="text-2xl font-display font-bold mb-4 text-arcades-blue dark:text-blue-300">Basic Example</h3>
+    {{ youtube("dQw4w9WgXcQ", "Rick Astley - Never Gonna Give You Up") }}
+    
+    <h3 class="text-2xl font-display font-bold mb-4 text-arcades-blue dark:text-blue-300">With Start Time (30 seconds in)</h3>
+    {{ youtube("dQw4w9WgXcQ", "Rick Astley - Never Gonna Give You Up (Starting at 0:30)", 30) }}
+    
+    <h3 class="text-2xl font-display font-bold mb-4 text-arcades-blue dark:text-blue-300">Without Title</h3>
+    {{ youtube("dQw4w9WgXcQ") }}
+  </div>
+</div> 

@@ -1,0 +1,30 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#f8fafc" />
+  
+  <!-- Gradient background -->
+  <rect width="1200" height="630" fill="url(#grad)" />
+  
+  <!-- YouTube play button -->
+  <g transform="translate(600, 315) scale(2.5)">
+    <rect x="-40" y="-30" width="80" height="60" rx="15" fill="#FF0000" />
+    <polygon points="0,15 -15,-10 15,-10" transform="rotate(90)" fill="white" />
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="500" font-family="Poppins, sans-serif" font-size="48" font-weight="700" text-anchor="middle" fill="#1e293b">
+    Embedding YouTube Videos
+  </text>
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="200" r="100" fill="#3b82f6" opacity="0.1" />
+  <circle cx="1000" cy="400" r="120" fill="#8b5cf6" opacity="0.1" />
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+</svg> 
