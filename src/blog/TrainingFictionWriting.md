@@ -4,7 +4,8 @@ subtitle: Lessons from fiction writing that apply to mastering any skill
 description: Discover how the principles of fiction writing can help you learn any new skill more effectively, from coding to business.
 date: 2025-03-11
 author: Austen Tucker
-tags:
+tags:  
+  - post
   - writing
   - learning
   - productivity
