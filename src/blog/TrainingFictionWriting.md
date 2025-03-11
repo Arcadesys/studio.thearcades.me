@@ -1,15 +1,17 @@
 ---
+layout: post.njk
 title: How to Learn Anything (By Writing Fiction First)
 subtitle: Lessons from fiction writing that apply to mastering any skill
 description: Discover how the principles of fiction writing can help you learn any new skill more effectively, from coding to business.
 date: 2025-03-11
 author: Austen Tucker
 tags:
+  - post
   - writing
   - learning
   - productivity
   - creativity
-image: /img/blog/fiction-writing.jpg
+image: /img/blog/typewriter.svg
 ---
 
 
@@ -40,7 +42,7 @@ So why flash fiction?
 - **It forces you to experiment.** You can try different genres, voices, and ideas without a huge time investment.
 - **It teaches the fundamentals.** Pacing, dialogue, and emotional impact get immediate focus.
 - **If it doesn't work, scrap it.** No sunk-cost fallacy—just move on to the next idea. (Spoiler, your first few stories will _not_ work, and you should expect that going in.)
-- **You learn to be brief.** A single word in the right place can stick with someone better than an endless drone of infodumping. (See: William Faulkner's Vardaman declaring, in a single-chapter sentence, "My mother is a fish.)
+- **You learn to be brief.** A single word in the right place can stick with someone better than an endless drone of infodumping. (See: William Faulkner's Vardaman declaring, in a single-chapter sentence, "My mother is a fish.")
 
 ### **How this applies to everything else:**
 
@@ -125,3 +127,4 @@ So whether you're writing, coding, starting a business, or learning _anything_, 
 And if you _are_ writing?
 
 Start with a 1,000-word story. See where it takes you. And if you're feeling particularly brave, send it along! I love helping new writers find their feet.
+

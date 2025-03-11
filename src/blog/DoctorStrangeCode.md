@@ -152,14 +152,3 @@ By integrating AI into my workflow, I'm:
 We're at the beginning of a creative renaissance where AI doesn't replace creativity—it **enhances** it. And now? My storytelling boulder still rolls uphill…
 
 But I've got a lot more control over where it goes.
-
----
-
-<div class="text-center mt-8 mb-4">
-  <a href="/#subscription-form" class="btn btn-primary inline-flex items-center group">
-    <span class="group-hover:mr-2 transition-all">Subscribe for More Vibe-Coding Tips</span>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-    </svg>
-  </a>
-</div>

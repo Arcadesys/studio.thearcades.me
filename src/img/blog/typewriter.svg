@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Green background -->
+  <rect width="800" height="500" fill="#8abb8e" />
+  
+  <!-- Table/surface -->
+  <rect x="0" y="400" width="800" height="100" fill="#b05b3b" />
+  
+  <!-- Typewriter base -->
+  <rect x="215" y="250" width="370" height="150" rx="10" fill="#e74c3c" />
+  <rect x="200" y="380" width="400" height="20" rx="5" fill="#c0392b" />
+  
+  <!-- Typewriter paper holder -->
+  <rect x="250" y="200" width="300" height="50" rx="5" fill="#c0392b" />
+  
+  <!-- Paper -->
+  <rect x="300" y="150" width="200" height="150" fill="#f5f5dc" />
+  
+  <!-- Typewriter keys -->
+  <g>
+    <!-- Row 1 -->
+    <circle cx="250" cy="320" r="15" fill="#2c3e50" />
+    <circle cx="280" cy="320" r="15" fill="#2c3e50" />
+    <circle cx="310" cy="320" r="15" fill="#2c3e50" />
+    <circle cx="340" cy="320" r="15" fill="#2c3e50" />
+    <circle cx="370" cy="320" r="15" fill="#2c3e50" />
+    <circle cx="400" cy="320" r="15" fill="#2c3e50" />
+    <circle cx="430" cy="320" r="15" fill="#2c3e50" />
+    <circle cx="460" cy="320" r="15" fill="#2c3e50" />
+    <circle cx="490" cy="320" r="15" fill="#2c3e50" />
+    <circle cx="520" cy="320" r="15" fill="#2c3e50" />
+    
+    <!-- Row 2 -->
+    <circle cx="265" cy="350" r="15" fill="#2c3e50" />
+    <circle cx="295" cy="350" r="15" fill="#2c3e50" />
+    <circle cx="325" cy="350" r="15" fill="#2c3e50" />
+    <circle cx="355" cy="350" r="15" fill="#2c3e50" />
+    <circle cx="385" cy="350" r="15" fill="#2c3e50" />
+    <circle cx="415" cy="350" r="15" fill="#2c3e50" />
+    <circle cx="445" cy="350" r="15" fill="#2c3e50" />
+    <circle cx="475" cy="350" r="15" fill="#2c3e50" />
+    <circle cx="505" cy="350" r="15" fill="#2c3e50" />
+  </g>
+  
+  <!-- Typewriter roller -->
+  <rect x="270" y="230" width="260" height="20" rx="10" fill="#34495e" />
+  
+  <!-- Typewriter details -->
+  <circle cx="400" cy="280" r="25" fill="#34495e" />
+  <rect x="390" y="250" width="20" height="30" fill="#34495e" />
+  
+  <!-- Shadow -->
+  <ellipse cx="400" cy="400" rx="180" ry="10" fill="rgba(0,0,0,0.3)" />
+</svg> 
