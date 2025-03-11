@@ -1,4 +1,8 @@
 module.exports = function(eleventyConfig) {
+  // Add RSS plugin
+  const pluginRss = require("@11ty/eleventy-plugin-rss");
+  eleventyConfig.addPlugin(pluginRss);
+  
   // Copy the `css` directory to the output
   eleventyConfig.addPassthroughCopy("src/css");
   

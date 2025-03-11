@@ -1,0 +1,19 @@
+{
+  "title": "The Arcades Studio",
+  "description": "A blog and portfolio site showcasing projects and thoughts",
+  "url": "https://studio.thearcades.me",
+  "author": {
+    "name": "The Arcades",
+    "email": "hello@thearcades.me"
+  },
+  "feed": {
+    "subtitle": "Latest posts from The Arcades Studio",
+    "filename": "feed.xml",
+    "path": "/feed.xml",
+    "id": "https://studio.thearcades.me/"
+  },
+  "jsonfeed": {
+    "path": "/feed.json",
+    "url": "https://studio.thearcades.me/feed.json"
+  }
+} 
