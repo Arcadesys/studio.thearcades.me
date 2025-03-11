@@ -14,12 +14,99 @@ title: Blog | The Arcades' Studio
     </p>
     
     <div class="mt-6">
-      <a href="/feed.xml" class="btn btn-primary inline-flex items-center group">
+      <button id="open-subscription" class="btn btn-primary inline-flex items-center group">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:animate-pulse" viewBox="0 0 24 24" fill="currentColor">
           <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"/>
         </svg>
-        Subscribe via RSS
+        Subscribe to Updates
+      </button>
+      <a href="/feed.xml" class="btn btn-secondary inline-flex items-center group ml-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"/>
+        </svg>
+        RSS Feed
       </a>
+    </div>
+  </div>
+  
+  <!-- Subscription Form Modal -->
+  <div id="subscription-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+    <div class="modal-container bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full relative animate-float">
+      <button id="close-subscription" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      
+      <div class="p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-arcades-blue rounded-lg flex items-center justify-center text-white mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-display font-bold text-arcades-blue dark:text-blue-300">Stay in the Loop!</h2>
+        </div>
+        
+        <div class="w-24 h-24 mx-auto mb-6 relative">
+          <img src="/img/avatar/cartoon-cat.svg" alt="Cartoon Cat Avatar" class="w-full h-full animate-float">
+          <div class="absolute -top-3 -right-3 bg-arcades-blue text-white p-2 rounded-full transform rotate-12 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+          </div>
+        </div>
+        
+        <p class="text-gray-700 dark:text-gray-300 mb-4">
+          Subscribe to my newsletter and never miss a new post or project update. Perfect for both toons and humans in Clampett City!
+        </p>
+        
+        <form id="modal-subscription-form" action="https://thearcades.us19.list-manage.com/subscribe/post" method="POST" class="space-y-4">
+          <!-- Mailchimp required hidden fields -->
+          <input type="hidden" name="u" value="afef69cb736379e6b35215432e6fcd2b">
+          <input type="hidden" name="id" value="0ea15d3548">
+          <!-- Redirect URLs -->
+          <input type="hidden" name="REDIRECT" value="/subscribe-success/">
+          <input type="hidden" name="ERROR_REDIRECT" value="/mailchimp-error/">
+          <input type="hidden" name="f_id" value="0ea15d3548">
+          <input type="hidden" name="SOURCE" value="blog-modal">
+          <!-- Debug field to help with troubleshooting -->
+          <input type="hidden" name="tags" value="blog-modal-signup">
+          
+          <div>
+            <label for="modal-email" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Email Address</label>
+            <input type="email" id="modal-email" name="EMAIL" required 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-arcades-blue dark:focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" 
+                  placeholder="your.email@example.com">
+          </div>
+          
+          <div>
+            <label for="modal-name" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Name (Optional)</label>
+            <input type="text" id="modal-name" name="FNAME" 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-arcades-blue dark:focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" 
+                  placeholder="What should I call you?">
+          </div>
+          
+          <div class="flex items-center">
+            <input type="checkbox" id="modal-consent" name="gdpr[27705]" value="Y" required class="h-5 w-5 text-arcades-blue focus:ring-arcades-blue dark:focus:ring-blue-500 rounded">
+            <label for="modal-consent" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">
+              I agree to receive email newsletters (you can unsubscribe anytime)
+            </label>
+          </div>
+          
+          <!-- The following prevents bot signups -->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_afef69cb736379e6b35215432e6fcd2b_0ea15d3548" tabindex="-1" value="">
+          </div>
+          
+          <button type="submit" class="w-full btn btn-primary group">
+            <span class="group-hover:mr-2 transition-all">Subscribe</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
   
@@ -69,9 +156,7 @@ title: Blog | The Arcades' Studio
               </time>
               {% if post.data.author %}
                 <span class="bg-arcades-pink text-white px-3 py-1 rounded-lg text-sm inline-flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                  <img src="/img/avatar/cartoon-cat.svg" alt="Cartoon Cat Avatar" class="h-4 w-4 mr-1">
                   {{ post.data.author }}
                 </span>
               {% endif %}
@@ -117,4 +202,87 @@ title: Blog | The Arcades' Studio
       </div>
     {% endif %}
   </div>
-</div> 
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const openButton = document.getElementById('open-subscription');
+    const closeButton = document.getElementById('close-subscription');
+    const modal = document.getElementById('subscription-modal');
+    const form = document.getElementById('modal-subscription-form');
+    
+    // Open modal when the subscribe button is clicked
+    if (openButton) {
+      openButton.addEventListener('click', function() {
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden'); // Prevent scrolling
+        
+        // Add a fun entrance animation for the modal container
+        const modalContainer = modal.querySelector('.modal-container');
+        if (modalContainer) {
+          modalContainer.classList.add('animate-bounce-in');
+          setTimeout(() => {
+            modalContainer.classList.remove('animate-bounce-in');
+          }, 500);
+        }
+      });
+    }
+    
+    // Close modal when the close button is clicked
+    if (closeButton) {
+      closeButton.addEventListener('click', function() {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      });
+    }
+    
+    // Close modal when clicking outside the modal content
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+    }
+    
+    // Handle form submission
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        // Validate the form before submission
+        const email = document.getElementById('modal-email').value;
+        const consent = document.getElementById('modal-consent').checked;
+        
+        if (!email || !consent) {
+          e.preventDefault();
+          return;
+        }
+        
+        // Store that the user has subscribed in localStorage
+        localStorage.setItem('subscribed', 'true');
+        localStorage.setItem('subscriberEmail', email);
+        localStorage.setItem('subscriberName', document.getElementById('modal-name').value);
+        
+        // Add a fallback redirect in case Mailchimp's redirect doesn't work
+        setTimeout(function() {
+          // If we're still on the page after 5 seconds, redirect manually
+          window.location.href = '/subscribe-success/';
+        }, 5000);
+        
+        // Note: Mailchimp will handle the actual form submission and redirect
+      });
+    }
+  });
+</script>
+
+<style>
+  @keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    70% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.5s ease-out;
+  }
+</style> 

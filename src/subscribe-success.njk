@@ -1,0 +1,93 @@
+---
+layout: base.njk
+title: Subscription Successful | The Arcades' Studio
+permalink: /subscribe-success/
+---
+
+<div class="min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
+  <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 md:p-12 rounded-xl shadow-medium dark:shadow-dark-medium max-w-2xl border-2 border-transparent hover:border-arcades-green dark:hover:border-green-500 transition-all duration-300 animate-float">
+    <div class="mb-8">
+      <div class="w-24 h-24 bg-arcades-green rounded-full flex items-center justify-center text-white mx-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+    </div>
+    
+    <p class="text-2xl md:text-3xl font-medium text-arcades-green dark:text-green-300 mb-6">
+      Subscription Successful!
+    </p>
+    
+    <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
+      Thanks for subscribing to our newsletter! You'll now receive updates on new posts and projects.
+    </p>
+    
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/" class="btn btn-primary group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        Return Home
+      </a>
+      <a href="/blog/" class="btn btn-secondary group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+        </svg>
+        Read Blog
+      </a>
+    </div>
+  </div>
+  
+  <!-- Decorative elements -->
+  <div class="absolute top-1/4 left-1/4 w-24 h-24 bg-arcades-green opacity-20 dark:opacity-30 blob animate-float" style="animation-delay: 0.5s;"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-32 h-32 bg-arcades-pink opacity-20 dark:opacity-30 blob-2 animate-float" style="animation-delay: 1.5s;"></div>
+  <div class="absolute top-2/3 left-1/3 w-16 h-16 bg-arcades-blue opacity-20 dark:opacity-30 blob-3 animate-float" style="animation-delay: 2.5s;"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add the cartoon cat avatar
+    const catAvatar = document.createElement('div');
+    catAvatar.className = 'w-32 h-32 mx-auto mb-6';
+    catAvatar.innerHTML = `<img src="/img/avatar/cartoon-cat.svg" alt="Cartoon Cat Avatar" class="w-full h-full animate-float">`;
+    
+    // Insert after the checkmark icon
+    const checkmarkDiv = document.querySelector('.mb-8');
+    if (checkmarkDiv) {
+      checkmarkDiv.parentNode.insertBefore(catAvatar, checkmarkDiv.nextSibling);
+    }
+    
+    // Check if this was a test submission
+    const isTest = localStorage.getItem('mailchimp_test') === 'true';
+    const testEmail = localStorage.getItem('test_email');
+    
+    // Get the subscriber's name from localStorage if available
+    const subscriberName = localStorage.getItem('subscriberName');
+    
+    // Update the title and message based on whether this was a test
+    const titleElement = document.querySelector('.text-2xl.md\\:text-3xl');
+    const messageElement = document.querySelector('.text-lg.text-gray-700.dark\\:text-gray-300.mb-8');
+    
+    if (titleElement) {
+      if (isTest) {
+        titleElement.textContent = `Test Successful!`;
+        if (messageElement) {
+          messageElement.innerHTML = `
+            Your test submission to Mailchimp was successful! This confirms that your Mailchimp integration is working properly.<br><br>
+            <strong>Test Email:</strong> ${testEmail || 'Not recorded'}<br>
+            <strong>Tags:</strong> test-signup
+          `;
+        }
+      } else if (subscriberName) {
+        titleElement.textContent = `Thanks, ${subscriberName}!`;
+      }
+    }
+    
+    // Clear the localStorage
+    localStorage.removeItem('subscriberName');
+    localStorage.removeItem('subscriberEmail');
+    localStorage.removeItem('subscribed');
+    localStorage.removeItem('mailchimp_test');
+    localStorage.removeItem('test_email');
+  });
+</script> 

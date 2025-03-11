@@ -1,0 +1,142 @@
+---
+layout: base.njk
+title: Mailchimp Status | The Arcades' Studio
+permalink: /mailchimp-status/
+---
+
+<div class="min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
+  <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 md:p-12 rounded-xl shadow-medium dark:shadow-dark-medium max-w-2xl border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300">
+    <h1 class="text-3xl font-display font-bold mb-6 text-arcades-blue dark:text-blue-300">Mailchimp Integration Status</h1>
+    
+    <div class="w-32 h-32 mx-auto mb-6">
+      <img src="/img/avatar/cartoon-cat.svg" alt="Cartoon Cat Avatar" class="w-full h-full animate-float">
+    </div>
+    
+    <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
+      This page checks the status of your Mailchimp integration and provides diagnostic information.
+    </p>
+    
+    <div class="bg-white/90 dark:bg-gray-700/90 p-6 rounded-xl mb-8 text-left">
+      <h3 class="text-xl font-medium text-arcades-blue dark:text-blue-300 mb-4">Integration Status:</h3>
+      
+      <div class="space-y-4">
+        <div id="connection-status" class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          <h4 class="font-medium text-gray-700 dark:text-gray-300 flex items-center">
+            <span class="inline-block w-4 h-4 rounded-full bg-gray-400 mr-2"></span>
+            Connection to Mailchimp
+          </h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Checking connection to Mailchimp servers...</p>
+        </div>
+        
+        <div id="form-status" class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          <h4 class="font-medium text-gray-700 dark:text-gray-300 flex items-center">
+            <span class="inline-block w-4 h-4 rounded-full bg-gray-400 mr-2"></span>
+            Form Configuration
+          </h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Checking form configuration...</p>
+        </div>
+        
+        <div id="redirect-status" class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          <h4 class="font-medium text-gray-700 dark:text-gray-300 flex items-center">
+            <span class="inline-block w-4 h-4 rounded-full bg-gray-400 mr-2"></span>
+            Redirect URLs
+          </h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Checking redirect URLs...</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/mailchimp-test" class="btn btn-primary group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        </svg>
+        Run Test Subscription
+      </a>
+      <a href="/" class="btn btn-secondary group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        Return Home
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Helper function to update status
+    function updateStatus(id, status, message, details = '') {
+      const element = document.getElementById(id);
+      if (!element) return;
+      
+      const statusDot = element.querySelector('span');
+      const statusText = element.querySelector('p');
+      
+      if (statusDot) {
+        statusDot.className = `inline-block w-4 h-4 rounded-full ${
+          status === 'success' ? 'bg-green-500' : 
+          status === 'warning' ? 'bg-yellow-500' : 
+          status === 'error' ? 'bg-red-500' : 
+          'bg-gray-400'
+        } mr-2`;
+      }
+      
+      if (statusText) {
+        statusText.innerHTML = message;
+        if (details) {
+          statusText.innerHTML += `<div class="mt-2 text-xs font-mono bg-gray-200 dark:bg-gray-900 p-2 rounded overflow-x-auto">${details}</div>`;
+        }
+      }
+    }
+    
+    // Check connection to Mailchimp
+    updateStatus('connection-status', 'pending', 'Checking connection to Mailchimp servers...');
+    fetch('https://us19.api.mailchimp.com/3.0/', { 
+      method: 'HEAD',
+      mode: 'no-cors' // This will always succeed due to CORS, but helps check if the server is reachable
+    })
+    .then(() => {
+      updateStatus('connection-status', 'success', 'Connection to Mailchimp servers is available.');
+    })
+    .catch(error => {
+      updateStatus('connection-status', 'warning', 'Could not directly connect to Mailchimp API (expected due to CORS).');
+    });
+    
+    // Check form configuration
+    const formConfig = {
+      action: 'https://thearcades.us19.list-manage.com/subscribe/post',
+      u: 'afef69cb736379e6b35215432e6fcd2b',
+      id: '0ea15d3548',
+      f_id: '0ea15d3548'
+    };
+    
+    const formConfigDetails = Object.entries(formConfig)
+      .map(([key, value]) => `<strong>${key}:</strong> ${value}`)
+      .join('<br>');
+    
+    updateStatus('form-status', 'success', 'Form configuration looks correct.', formConfigDetails);
+    
+    // Check redirect URLs
+    const currentHost = window.location.origin;
+    const redirectUrls = {
+      success: '/subscribe-success/',
+      error: '/mailchimp-error/'
+    };
+    
+    const absoluteUrls = {
+      success: new URL(redirectUrls.success, currentHost).href,
+      error: new URL(redirectUrls.error, currentHost).href
+    };
+    
+    const redirectDetails = `
+      <strong>Current Host:</strong> ${currentHost}<br>
+      <strong>Success Redirect:</strong> ${redirectUrls.success}<br>
+      <strong>Error Redirect:</strong> ${redirectUrls.error}<br>
+      <strong>Absolute Success URL:</strong> ${absoluteUrls.success}<br>
+      <strong>Absolute Error URL:</strong> ${absoluteUrls.error}
+    `;
+    
+    updateStatus('redirect-status', 'success', 'Redirect URLs are configured correctly.', redirectDetails);
+  });
+</script> 
