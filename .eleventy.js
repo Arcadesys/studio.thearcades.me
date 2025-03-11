@@ -76,6 +76,21 @@ module.exports = function(eleventyConfig) {
     });
   });
   
+  // Create a collection for published posts (excluding future posts)
+  eleventyConfig.addCollection("publishedPosts", function(collectionApi) {
+    const now = new Date();
+    
+    return collectionApi.getFilteredByTag("post")
+      .filter(post => {
+        // Filter out posts with future dates
+        return post.date <= now;
+      })
+      .sort((a, b) => {
+        // Sort by date in descending order (newest first)
+        return b.date - a.date;
+      });
+  });
+  
   // Return your object options
   return {
     dir: {
