@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "npx @11ty/eleventy && npx tailwindcss -i ./src/css/style.css -o ./_site/css/style.css --minify",
-    "dev": "npx @11ty/eleventy --serve & npx tailwindcss -i ./src/css/style.css -o ./_site/css/style.css --watch",
+    "dev:eleventy": "npx @11ty/eleventy --serve",
+    "dev:tailwind": "npx tailwindcss -i ./src/css/style.css -o ./_site/css/style.css --watch",
+    "dev": "npm run build && (npm run dev:eleventy & npm run dev:tailwind)",
     "start": "npm run dev"
   },
   "keywords": [
