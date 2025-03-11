@@ -1,0 +1,49 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="300" height="300" fill="#1E293B" rx="20" ry="20" />
+  
+  <!-- Character base -->
+  <circle cx="150" cy="150" r="90" fill="#E2E8F0" />
+  
+  <!-- Suit/Formal outfit -->
+  <path d="M110 170 L110 250 L190 250 L190 170" fill="#F0E6BA" />
+  <rect x="130" y="170" width="40" height="80" fill="#1E293B" />
+  <rect x="110" y="170" width="80" height="20" fill="#1E293B" />
+  
+  <!-- Bow tie -->
+  <rect x="140" y="170" width="20" height="10" fill="#1E293B" />
+  <path d="M130 175 L140 170 L140 180 Z" fill="#EC4899" />
+  <path d="M170 175 L160 170 L160 180 Z" fill="#EC4899" />
+  
+  <!-- Suspenders -->
+  <rect x="125" y="170" width="5" height="80" fill="#F0E6BA" />
+  <rect x="170" y="170" width="5" height="80" fill="#F0E6BA" />
+  
+  <!-- Face -->
+  <circle cx="150" cy="130" r="50" fill="#F0E6BA" />
+  
+  <!-- Hair -->
+  <path d="M100 130 Q150 80 200 130 L200 110 Q150 60 100 110 Z" fill="#059669" />
+  <path d="M100 130 L100 110 Q120 90 130 110 L130 120 Z" fill="#059669" />
+  <path d="M200 130 L200 110 Q180 90 170 110 L170 120 Z" fill="#059669" />
+  
+  <!-- Horns -->
+  <path d="M120 90 Q110 60 130 70 Z" fill="#E2E8F0" />
+  <path d="M180 90 Q190 60 170 70 Z" fill="#E2E8F0" />
+  
+  <!-- Eyes -->
+  <circle cx="130" cy="130" r="10" fill="#EF4444" />
+  <circle cx="170" cy="130" r="10" fill="#EF4444" />
+  
+  <!-- Headphones -->
+  <path d="M90 130 Q90 100 150 90 Q210 100 210 130" fill="none" stroke="#F59E0B" stroke-width="5" />
+  <circle cx="90" cy="130" r="15" fill="#F59E0B" />
+  <circle cx="210" cy="130" r="15" fill="#F59E0B" />
+  
+  <!-- Mouth -->
+  <path d="M140 160 L160 160" stroke="#1E293B" stroke-width="3" />
+  
+  <!-- Phone in hand -->
+  <rect x="200" y="200" width="20" height="35" rx="3" ry="3" fill="#4F46E5" />
+  <rect x="203" y="205" width="14" height="25" rx="2" ry="2" fill="#000000" />
+</svg> 

@@ -21,6 +21,11 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addFilter(filterName, filters[filterName]);
   });
   
+  // Add filter to find related posts by tags
+  eleventyConfig.addFilter("filter", function(array, callback) {
+    return array.filter(callback);
+  });
+  
   // Add YouTube shortcode
   eleventyConfig.addShortcode("youtube", function(id, title = "", startTime = 0) {
     const safeTitle = title || "YouTube video";
@@ -52,7 +57,7 @@ module.exports = function(eleventyConfig) {
         }
         
         tags = tags.filter(tag => {
-          return !["all", "nav", "post", "posts"].includes(tag);
+          return !["all", "nav", "post", "posts", "project", "projects"].includes(tag);
         });
         
         for (const tag of tags) {
@@ -62,6 +67,28 @@ module.exports = function(eleventyConfig) {
     });
     
     return [...tagSet].sort();
+  });
+  
+  // Create a collection for projects
+  eleventyConfig.addCollection("project", function(collectionApi) {
+    return collectionApi.getFilteredByTag("project").sort((a, b) => {
+      return b.date - a.date; // Sort by date in descending order
+    });
+  });
+  
+  // Create a collection for published posts (excluding future posts)
+  eleventyConfig.addCollection("publishedPosts", function(collectionApi) {
+    const now = new Date();
+    
+    return collectionApi.getFilteredByTag("post")
+      .filter(post => {
+        // Filter out posts with future dates
+        return post.date <= now;
+      })
+      .sort((a, b) => {
+        // Sort by date in descending order (newest first)
+        return b.date - a.date;
+      });
   });
   
   // Return your object options

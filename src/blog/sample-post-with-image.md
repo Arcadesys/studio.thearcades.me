@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: Building a Toon-Friendly Web App
+title: "Caution: Fun Prompting Can Lead to Unexpected Joy"
 subtitle: Adventures in Cartoon-Human Interface Design
 date: 2023-03-15
 image: /img/toon-app-masthead.svg
@@ -12,7 +12,14 @@ tags:
   - web development
   - Clampett
   - AcmeCorp
+  - blog development
 ---
+
+# Custom prompts and you:
+
+
+The result:
+
 
 # Building a Toon-Friendly Web App
 

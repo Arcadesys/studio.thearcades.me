@@ -1,0 +1,14 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+<!-- Cat silhouette -->
+<circle cx="150" cy="150" r="100" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="3" />
+<circle cx="120" cy="120" r="15" fill="#4F46E5" />
+<circle cx="180" cy="120" r="15" fill="#4F46E5" />
+<path d="M 130 160 Q 150 180 170 160" stroke="#000000" stroke-width="5" fill="none" />
+<path d="M 100 80 L 120 120 L 80 130" fill="#FFFFFF" stroke="#000000" stroke-width="2" />
+<path d="M 200 80 L 180 120 L 220 130" fill="#FFFFFF" stroke="#000000" stroke-width="2" />
+<!-- Gadget elements -->
+<circle cx="150" cy="70" r="15" fill="#EC4899" />
+<rect x="145" y="40" width="10" height="30" fill="#10B981" />
+<circle cx="240" cy="150" r="10" fill="#F59E0B" />
+<rect x="200" y="145" width="40" height="10" fill="#F59E0B" />
+</svg> 

@@ -1,0 +1,38 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background elements -->
+  <rect x="50" y="200" width="300" height="20" rx="10" fill="#8B5CF6" opacity="0.3" />
+  
+  <!-- Manhole -->
+  <circle cx="200" cy="210" r="50" fill="#1F2937" />
+  <circle cx="200" cy="210" r="40" fill="#111827" />
+  
+  <!-- Cat peeking out of manhole -->
+  <circle cx="200" cy="230" r="30" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="3" />
+  
+  <!-- Cat ears -->
+  <path d="M 180 210 L 170 190 L 190 200 Z" fill="#FFFFFF" stroke="#000000" stroke-width="2" />
+  <path d="M 220 210 L 230 190 L 210 200 Z" fill="#FFFFFF" stroke="#000000" stroke-width="2" />
+  
+  <!-- Cat eyes -->
+  <circle cx="190" cy="225" r="5" fill="#4F46E5" />
+  <circle cx="210" cy="225" r="5" fill="#4F46E5" />
+  
+  <!-- Cat whiskers -->
+  <line x1="175" y1="235" x2="160" y2="230" stroke="#000000" stroke-width="1.5" />
+  <line x1="175" y1="240" x2="160" y2="240" stroke="#000000" stroke-width="1.5" />
+  <line x1="175" y1="245" x2="160" y2="250" stroke="#000000" stroke-width="1.5" />
+  
+  <line x1="225" y1="235" x2="240" y2="230" stroke="#000000" stroke-width="1.5" />
+  <line x1="225" y1="240" x2="240" y2="240" stroke="#000000" stroke-width="1.5" />
+  <line x1="225" y1="245" x2="240" y2="250" stroke="#000000" stroke-width="1.5" />
+  
+  <!-- Gadget elements -->
+  <circle cx="200" cy="200" r="8" fill="#EC4899" />
+  <rect x="198" y="180" width="4" height="20" fill="#10B981" />
+  <circle cx="240" cy="220" r="5" fill="#F59E0B" />
+  <rect x="220" y="218" width="20" height="4" fill="#F59E0B" />
+  
+  <!-- 404 Text -->
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="60" font-weight="bold" text-anchor="middle" fill="#8B5CF6">404</text>
+  <text x="200" y="140" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#4F46E5">Page Not Found</text>
+</svg> 
