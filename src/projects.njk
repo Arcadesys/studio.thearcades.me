@@ -111,9 +111,7 @@ title: Projects | The Arcades' Studio
         
         <!-- Related Blog Posts -->
         {% if project.data.tags %}
-          {% set relatedPosts = collections.post | filter(post => 
-            post.data.tags and post.data.tags.some(tag => project.data.tags.includes(tag))
-          ) | reverse %}
+          {% set relatedPosts = collections.post | relatedByTags(project.data.tags) | reverse %}
           
           {% if relatedPosts.length > 0 %}
             <div class="mb-8">
