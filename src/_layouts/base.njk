@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title | default("The Arcades' Studio") }}</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     // Check for saved theme preference or use the system preference
     const theme = localStorage.getItem('theme') || 'system';
@@ -31,34 +31,41 @@
   </script>
 </head>
 <body class="bg-light dark:bg-dark min-h-screen">
+  <!-- Background elements -->
   <div class="pattern-bg fixed inset-0 z-0"></div>
   
-  <header class="bg-white dark:bg-gray-800 border-b-3 border-accent py-4 relative z-10 shadow-soft dark:shadow-dark-soft">
+  <!-- Decorative blobs -->
+  <div class="fixed top-20 right-[10%] w-64 h-64 bg-arcades-blue opacity-10 dark:opacity-20 rounded-full blur-3xl z-0 animate-float"></div>
+  <div class="fixed bottom-20 left-[10%] w-80 h-80 bg-arcades-pink opacity-10 dark:opacity-20 rounded-full blur-3xl z-0 animate-float" style="animation-delay: 2s;"></div>
+  
+  <header class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-b-3 border-accent py-4 sticky top-0 z-50 shadow-soft dark:shadow-dark-soft">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-        <h1 class="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-white text-center md:text-left mb-4 md:mb-0">
-          <a href="/" class="inline-block accent-border-bottom pb-1">The Arcades' Studio</a>
+        <h1 class="text-2xl md:text-3xl font-display font-bold text-center md:text-left mb-4 md:mb-0">
+          <a href="/" class="inline-block accent-border-bottom pb-1 hover:text-arcades-blue dark:hover:text-blue-300 transition-colors">
+            The Arcades' Studio
+          </a>
         </h1>
         <div class="flex flex-col md:flex-row items-center">
           <nav class="mb-4 md:mb-0 md:mr-4">
             <ul class="flex flex-wrap justify-center md:justify-end gap-3">
               <li>
-                <a href="/" class="inline-block px-4 py-2 rounded-lg text-arcades-blue dark:text-blue-300 hover:bg-arcades-blue hover:text-white font-medium transition duration-200">
+                <a href="/" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-blue dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 font-medium transition duration-200">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/blog" class="inline-block px-4 py-2 rounded-lg text-arcades-green dark:text-green-300 hover:bg-arcades-green hover:text-white font-medium transition duration-200">
+                <a href="/blog" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-green dark:text-green-300 hover:bg-green-50 dark:hover:bg-green-900/30 font-medium transition duration-200">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="/about" class="inline-block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-arcades-purple hover:text-white font-medium transition duration-200">
+                <a href="/about" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-purple dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 font-medium transition duration-200">
                   About
                 </a>
               </li>
               <li>
-                <a href="/contact" class="inline-block px-4 py-2 rounded-lg text-arcades-pink dark:text-pink-300 hover:bg-arcades-pink hover:text-white font-medium transition duration-200">
+                <a href="/contact" class="nav-link inline-block px-4 py-2 rounded-lg text-arcades-pink dark:text-pink-300 hover:bg-pink-50 dark:hover:bg-pink-900/30 font-medium transition duration-200">
                   Contact
                 </a>
               </li>
@@ -66,17 +73,17 @@
           </nav>
           
           <div class="theme-toggle flex items-center gap-2 bg-gray-100 dark:bg-gray-700 p-2 rounded-lg">
-            <button id="theme-light" class="p-2 rounded-lg" aria-label="Light mode">
+            <button id="theme-light" class="p-2 rounded-lg transition-transform hover:scale-110" aria-label="Light mode">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             </button>
-            <button id="theme-dark" class="p-2 rounded-lg" aria-label="Dark mode">
+            <button id="theme-dark" class="p-2 rounded-lg transition-transform hover:scale-110" aria-label="Dark mode">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
               </svg>
             </button>
-            <button id="theme-system" class="p-2 rounded-lg" aria-label="System preference">
+            <button id="theme-system" class="p-2 rounded-lg transition-transform hover:scale-110" aria-label="System preference">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
@@ -87,21 +94,29 @@
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-8 relative z-10">
+  <main class="container mx-auto px-4 py-12 relative z-10">
     {{ content | safe }}
   </main>
 
-  <footer class="bg-gray-900 text-white py-8 relative z-10">
+  <footer class="bg-gray-900 text-white py-12 relative z-10">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-lg mb-4 md:mb-0">&copy; {{ page.date.getFullYear() }} The Arcades' Studio</p>
-        <div class="flex items-center gap-2 text-gray-400">
-          <a href="https://creativecommons.org/licenses/by/4.0/" class="hover:text-white transition-colors" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm-1.24 5.79c.43-.59 1.05-.89 1.88-.89.93 0 1.66.32 2.17.96.51.64.77 1.49.77 2.55 0 1.08-.27 1.95-.81 2.6-.53.65-1.27.97-2.23.97-.85 0-1.5-.28-1.96-.83v3.02H9.11V9.98h1.24l.21.81zm5.71.4c-.33-.42-.8-.63-1.41-.63-.76 0-1.28.41-1.53 1.24-.13.42-.2.86-.2 1.33 0 .5.07.96.21 1.38.25.81.76 1.21 1.52 1.21.62 0 1.08-.21 1.39-.64.17-.23.3-.52.38-.85h1.5c-.09.74-.37 1.36-.84 1.87-.59.64-1.35.95-2.3.95-1.01 0-1.81-.32-2.39-.96-.58-.64-.87-1.51-.87-2.61 0-1.12.3-2.01.89-2.65.59-.65 1.38-.97 2.37-.97.81 0 1.49.2 2.03.59.54.39.87.93.99 1.61h-1.74c-.05-.33-.17-.6-.36-.83z"/>
-            </svg>
-            Content licensed under CC BY 4.0
-          </a>
+        <div class="mb-6 md:mb-0">
+          <p class="text-xl font-display font-bold mb-2">&copy; {{ page.date.getFullYear() }} The Arcades' Studio</p>
+          <div class="flex items-center gap-2 text-gray-400">
+            <a href="https://creativecommons.org/licenses/by/4.0/" class="hover:text-white transition-colors group" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1 group-hover:text-blue-300 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm-1.24 5.79c.43-.59 1.05-.89 1.88-.89.93 0 1.66.32 2.17.96.51.64.77 1.49.77 2.55 0 1.08-.27 1.95-.81 2.6-.53.65-1.27.97-2.23.97-.85 0-1.5-.28-1.96-.83v3.02H9.11V9.98h1.24l.21.81zm5.71.4c-.33-.42-.8-.63-1.41-.63-.76 0-1.28.41-1.53 1.24-.13.42-.2.86-.2 1.33 0 .5.07.96.21 1.38.25.81.76 1.21 1.52 1.21.62 0 1.08-.21 1.39-.64.17-.23.3-.52.38-.85h1.5c-.09.74-.37 1.36-.84 1.87-.59.64-1.35.95-2.3.95-1.01 0-1.81-.32-2.39-.96-.58-.64-.87-1.51-.87-2.61 0-1.12.3-2.01.89-2.65.59-.65 1.38-.97 2.37-.97.81 0 1.49.2 2.03.59.54.39.87.93.99 1.61h-1.74c-.05-.33-.17-.6-.36-.83z"/>
+              </svg>
+              <span class="group-hover:text-blue-300 transition-colors">Content licensed under CC BY 4.0</span>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="/" class="text-gray-400 hover:text-white transition-colors">Home</a>
+          <a href="/blog" class="text-gray-400 hover:text-white transition-colors">Blog</a>
+          <a href="/about" class="text-gray-400 hover:text-white transition-colors">About</a>
+          <a href="/contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
         </div>
       </div>
     </div>
@@ -137,11 +152,11 @@
       
       // Remove active class from all buttons
       Object.values(buttons).forEach(button => {
-        button.classList.remove('bg-white', 'dark:bg-gray-600');
+        button.classList.remove('bg-white', 'dark:bg-gray-600', 'scale-110');
       });
       
       // Add active class to selected button
-      buttons[activeTheme].classList.add('bg-white', 'dark:bg-gray-600');
+      buttons[activeTheme].classList.add('bg-white', 'dark:bg-gray-600', 'scale-110');
     }
     
     // Set initial active button

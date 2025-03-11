@@ -11,5 +11,10 @@ module.exports = {
       month: 'short',
       day: 'numeric'
     });
+  },
+  
+  // Limit array to first n items
+  limit: function(array, limit) {
+    return array.slice(0, limit);
   }
 }; 

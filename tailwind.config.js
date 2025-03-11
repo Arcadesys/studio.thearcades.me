@@ -54,7 +54,27 @@ module.exports = {
         'accent': '0 4px 0 0 rgba(245, 158, 11, 0.5)',
         'dark-soft': '0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1)',
         'dark-medium': '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2)',
-      }
+      },
+      animation: {
+        'float': 'float 5s ease-in-out infinite',
+        'gradient-x': 'gradient-x 8s ease infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'gradient-x': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+      },
+      backgroundSize: {
+        '200%': '200% 200%',
+      },
+      backdropBlur: {
+        'xs': '2px',
+      },
     },
   },
   plugins: [

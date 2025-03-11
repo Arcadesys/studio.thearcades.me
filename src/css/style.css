@@ -6,27 +6,45 @@
 
 /* Pattern background */
 .pattern-bg {
-  @apply bg-light opacity-50;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  @apply bg-light opacity-70;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234F46E5' fill-opacity='0.1'%3E%3Cpath d='M50 25a25 25 0 1 1 0 50 25 25 0 0 1 0-50zm0 5a20 20 0 1 0 0 40 20 20 0 0 0 0-40zm0 5a15 15 0 1 1 0 30 15 15 0 0 1 0-30zm0 5a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .dark .pattern-bg {
-  @apply bg-dark opacity-30;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  @apply bg-dark opacity-40;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B5CF6' fill-opacity='0.2'%3E%3Cpath d='M50 25a25 25 0 1 1 0 50 25 25 0 0 1 0-50zm0 5a20 20 0 1 0 0 40 20 20 0 0 0 0-40zm0 5a15 15 0 1 1 0 30 15 15 0 0 1 0-30zm0 5a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  @apply font-display;
+  @apply font-display font-bold;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl leading-tight;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl leading-tight;
 }
 
 p {
-  @apply font-body;
+  @apply font-body text-lg leading-relaxed;
 }
 
 /* Accent border bottom */
 .accent-border-bottom {
-  @apply border-b-3 border-accent;
+  @apply border-b-3 border-accent relative;
+}
+
+.accent-border-bottom::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-arcades-blue via-arcades-purple to-arcades-pink;
+  transform: translateY(3px);
 }
 
 /* Buttons */
@@ -35,11 +53,11 @@ p {
 }
 
 .btn:hover {
-  @apply translate-y-[-2px];
+  @apply translate-y-[-2px] shadow-lg;
 }
 
 .btn-primary {
-  @apply bg-arcades-blue text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500;
+  @apply bg-gradient-to-r from-arcades-blue to-arcades-purple text-white hover:from-blue-700 hover:to-purple-700 dark:from-blue-600 dark:to-purple-600 dark:hover:from-blue-500 dark:hover:to-purple-500;
 }
 
 .btn-secondary {
@@ -48,7 +66,7 @@ p {
 }
 
 .btn-accent {
-  @apply bg-arcades-orange text-white hover:bg-amber-600 dark:bg-amber-500 dark:hover:bg-amber-400;
+  @apply bg-gradient-to-r from-arcades-orange to-arcades-pink text-white hover:from-amber-600 hover:to-pink-600 dark:from-amber-500 dark:to-pink-500 dark:hover:from-amber-400 dark:hover:to-pink-400;
 }
 
 .btn-icon {
@@ -57,20 +75,57 @@ p {
 
 /* Cards */
 .card {
-  @apply bg-white dark:bg-gray-800 rounded-xl shadow-medium dark:shadow-dark-medium overflow-hidden;
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-medium dark:shadow-dark-medium overflow-hidden border-2 border-transparent transition-all duration-300;
 }
 
 .card:hover {
-  @apply shadow-medium;
+  @apply shadow-xl border-2 border-arcades-blue dark:border-blue-500 transform -translate-y-1;
 }
 
 .dark .card:hover {
-  @apply shadow-dark-medium;
+  @apply shadow-dark-medium border-blue-500;
 }
 
 /* Tags */
 .tag {
-  @apply inline-block px-3 py-1 rounded-lg text-sm font-medium transition duration-200;
+  @apply inline-block px-4 py-2 rounded-lg text-sm font-medium transition duration-200 border-2;
+}
+
+.tag:hover {
+  @apply transform -translate-y-1 shadow-md;
+}
+
+/* Header and Navigation */
+.nav-link {
+  @apply relative overflow-hidden;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-0.5 bg-current transform scale-x-0 transition-transform duration-300 origin-left;
+}
+
+.nav-link:hover::after {
+  @apply scale-x-100;
+}
+
+/* Animated gradient text */
+.gradient-text {
+  @apply font-bold bg-clip-text text-transparent bg-gradient-to-r from-arcades-blue via-arcades-purple to-arcades-pink animate-gradient-x;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 8s ease infinite;
+  background-size: 200% 200%;
 }
 
 /* Prose overrides */
@@ -83,7 +138,7 @@ p {
 }
 
 .prose a {
-  @apply text-arcades-purple dark:text-purple-300 no-underline hover:underline;
+  @apply text-arcades-purple dark:text-purple-300 no-underline border-b-2 border-arcades-pink hover:bg-pink-50 dark:hover:bg-pink-900 dark:hover:bg-opacity-20 transition-colors;
 }
 
 .prose blockquote {
@@ -107,7 +162,7 @@ p {
 }
 
 .prose img {
-  @apply rounded-lg shadow-medium dark:shadow-dark-medium;
+  @apply rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-gray-100 dark:border-gray-700;
 }
 
 .prose ul li::before {
@@ -116,4 +171,31 @@ p {
 
 .prose ol li::before {
   @apply text-arcades-blue dark:text-blue-300 font-display font-bold;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Custom shapes */
+.blob {
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+}
+
+.blob-2 {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.blob-3 {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 } 
