@@ -21,34 +21,57 @@
         document.documentElement.classList.remove('dark');
       }
       
-      // Update active button styling
-      updateActiveThemeButton(theme);
+      // Only update buttons if DOM is ready
+      if (document.readyState !== 'loading') {
+        updateActiveThemeButton(theme);
+      }
     }
     
     function updateActiveThemeButton(activeTheme) {
+      // Safely get buttons, checking if they exist
+      const lightButton = document.getElementById('theme-light');
+      const darkButton = document.getElementById('theme-dark');
+      const systemButton = document.getElementById('theme-system');
+      
+      // Only proceed if all buttons exist
+      if (!lightButton || !darkButton || !systemButton) return;
+      
       const buttons = {
-        light: document.getElementById('theme-light'),
-        dark: document.getElementById('theme-dark'),
-        system: document.getElementById('theme-system')
+        light: lightButton,
+        dark: darkButton,
+        system: systemButton
       };
       
       // Remove active class from all buttons
       Object.values(buttons).forEach(button => {
-        button.classList.remove('bg-white', 'dark:bg-gray-600', 'scale-110');
+        if (button) {
+          button.classList.remove('bg-white', 'dark:bg-gray-600', 'scale-110');
+        }
       });
       
       // Add active class to selected button
-      buttons[activeTheme].classList.add('bg-white', 'dark:bg-gray-600', 'scale-110');
+      if (buttons[activeTheme]) {
+        buttons[activeTheme].classList.add('bg-white', 'dark:bg-gray-600', 'scale-110');
+      }
     }
     
-    // Set initial theme based on system preference
-    setTheme('system');
+    // Set initial theme based on system preference (just the colors, not the buttons yet)
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
     
     // Listen for system preference changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
       if (currentTheme === 'system') {
         setTheme('system');
       }
+    });
+    
+    // Initialize theme buttons after DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      setTheme('system');
     });
   </script>
   <!-- Inline Vercel Analytics - absolute minimal implementation -->
@@ -194,17 +217,29 @@
   </footer>
 
   <script>
-    // Theme toggle functionality
-    document.getElementById('theme-light').addEventListener('click', () => {
-      setTheme('light');
-    });
-    
-    document.getElementById('theme-dark').addEventListener('click', () => {
-      setTheme('dark');
-    });
-    
-    document.getElementById('theme-system').addEventListener('click', () => {
-      setTheme('system');
+    // Theme toggle functionality - only set up after DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightButton = document.getElementById('theme-light');
+      const darkButton = document.getElementById('theme-dark');
+      const systemButton = document.getElementById('theme-system');
+      
+      if (lightButton) {
+        lightButton.addEventListener('click', () => {
+          setTheme('light');
+        });
+      }
+      
+      if (darkButton) {
+        darkButton.addEventListener('click', () => {
+          setTheme('dark');
+        });
+      }
+      
+      if (systemButton) {
+        systemButton.addEventListener('click', () => {
+          setTheme('system');
+        });
+      }
     });
   </script>
 </body>
