@@ -9,69 +9,44 @@
   <link rel="alternate" href="{{ site.url }}/feed.xml" type="application/atom+xml" title="{{ site.title }}">
   <link rel="alternate" href="{{ site.url }}/feed.json" type="application/json" title="{{ site.title }}">
   <script>
-    // Safe storage implementation that handles errors gracefully
-    const safeStorage = {
-      data: {
-        theme: 'system' // Default value
-      },
-      get: function(key) {
-        // First try to get from our in-memory object
-        if (this.data[key] !== undefined) {
-          return this.data[key];
-        }
-        
-        // Then try localStorage, but catch any errors
-        if (typeof window.localStorage !== 'undefined') {
-          try {
-            const value = window.localStorage.getItem(key);
-            if (value !== null) {
-              this.data[key] = value; // Cache it
-              return value;
-            }
-          } catch (e) {
-            // Silently fail and use default
-          }
-        }
-        
-        // Return default if nothing else worked
-        return this.data[key] || null;
-      },
-      set: function(key, value) {
-        // Always update our in-memory object
-        this.data[key] = value;
-        
-        // Then try localStorage, but catch any errors
-        if (typeof window.localStorage !== 'undefined') {
-          try {
-            window.localStorage.setItem(key, value);
-            return true;
-          } catch (e) {
-            // Silently fail, but we still updated our in-memory object
-          }
-        }
-        
-        return false;
-      }
-    };
+    // Simple theme handling with manual toggle but no storage
+    let currentTheme = 'system'; // Default to system
     
-    // Check for saved theme preference or use the system preference
-    const theme = safeStorage.get('theme') || 'system';
-    
-    // Function to set the theme
     function setTheme(theme) {
+      currentTheme = theme;
+      
       if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
       }
+      
+      // Update active button styling
+      updateActiveThemeButton(theme);
     }
     
-    // Set initial theme
-    setTheme(theme);
+    function updateActiveThemeButton(activeTheme) {
+      const buttons = {
+        light: document.getElementById('theme-light'),
+        dark: document.getElementById('theme-dark'),
+        system: document.getElementById('theme-system')
+      };
+      
+      // Remove active class from all buttons
+      Object.values(buttons).forEach(button => {
+        button.classList.remove('bg-white', 'dark:bg-gray-600', 'scale-110');
+      });
+      
+      // Add active class to selected button
+      buttons[activeTheme].classList.add('bg-white', 'dark:bg-gray-600', 'scale-110');
+    }
+    
+    // Set initial theme based on system preference
+    setTheme('system');
     
     // Listen for system preference changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (safeStorage.get('theme') === 'system') {
+      if (currentTheme === 'system') {
         setTheme('system');
       }
     });
@@ -221,42 +196,16 @@
   <script>
     // Theme toggle functionality
     document.getElementById('theme-light').addEventListener('click', () => {
-      safeStorage.set('theme', 'light');
       setTheme('light');
-      updateActiveThemeButton('light');
     });
     
     document.getElementById('theme-dark').addEventListener('click', () => {
-      safeStorage.set('theme', 'dark');
       setTheme('dark');
-      updateActiveThemeButton('dark');
     });
     
     document.getElementById('theme-system').addEventListener('click', () => {
-      safeStorage.set('theme', 'system');
       setTheme('system');
-      updateActiveThemeButton('system');
     });
-    
-    // Update active button styling
-    function updateActiveThemeButton(activeTheme) {
-      const buttons = {
-        light: document.getElementById('theme-light'),
-        dark: document.getElementById('theme-dark'),
-        system: document.getElementById('theme-system')
-      };
-      
-      // Remove active class from all buttons
-      Object.values(buttons).forEach(button => {
-        button.classList.remove('bg-white', 'dark:bg-gray-600', 'scale-110');
-      });
-      
-      // Add active class to selected button
-      buttons[activeTheme].classList.add('bg-white', 'dark:bg-gray-600', 'scale-110');
-    }
-    
-    // Set initial active button
-    updateActiveThemeButton(safeStorage.get('theme') || 'system');
   </script>
 </body>
 </html> 
