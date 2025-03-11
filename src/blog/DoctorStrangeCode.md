@@ -1,14 +1,15 @@
 ---
+layout: post.njk
 title: Doctor StrangeCode
-description: Or How I Learned to Stop Coding and Embrace the Vibes - A journey into AI-assisted creative workflows for writers and developers.
-date: 2023-03-10
+description: Or How I Learned to Stop Coding and Embrace the Vibes
+date: 2023-03-13
 tags:
+  - post
   - AI
   - writing
   - coding
   - creativity
   - Clampett
-  - AcmeCorp
 image: /img/doctor-strange-code.svg
 ---
 
@@ -30,7 +31,7 @@ But every so often, you get a lay-up—-something _AI_ can actually help with. N
 
 Being a novelist means drowning in revisions, drafts, and organizational chaos. The old-school fix for this was serialization—breaking stories into smaller pieces and sending them out as you write. It's why _The Count of Monte Cristo_ is 1.2 million words long.
 
-But my process? My drafts aren't readable until I've fussed with every detail. That leads to me sending out horrendous filenames like:
+But my process? My drafts aren't readable until I've had a chance to revise. That leads to me sending out horrendous filenames like:
 
 > **"my book chapters 1-3 with edits.pdf"**
 

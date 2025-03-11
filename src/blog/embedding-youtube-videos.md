@@ -1,8 +1,10 @@
 ---
+layout: post.njk
 title: How to Embed YouTube Videos in Your Blog
 description: Learn how to easily embed YouTube videos in your blog posts with custom styling that matches your site.
 date: 2023-03-11
 tags:
+  - post
   - tutorials
   - web development
   - youtube
