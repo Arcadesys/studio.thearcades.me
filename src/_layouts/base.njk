@@ -10,7 +10,15 @@
   <link rel="alternate" href="{{ site.url }}/feed.json" type="application/json" title="{{ site.title }}">
   <script>
     // Check for saved theme preference or use the system preference
-    const theme = localStorage.getItem('theme') || 'system';
+    let theme = 'system';
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        theme = savedTheme;
+      }
+    } catch (e) {
+      console.warn('Could not access localStorage for theme preference');
+    }
     
     // Function to set the theme
     function setTheme(theme) {
@@ -26,7 +34,12 @@
     
     // Listen for system preference changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (localStorage.getItem('theme') === 'system') {
+      try {
+        if (localStorage.getItem('theme') === 'system') {
+          setTheme('system');
+        }
+      } catch (e) {
+        // Fallback to system preference if localStorage is not available
         setTheme('system');
       }
     });
@@ -176,19 +189,31 @@
   <script>
     // Theme toggle functionality
     document.getElementById('theme-light').addEventListener('click', () => {
-      localStorage.setItem('theme', 'light');
+      try {
+        localStorage.setItem('theme', 'light');
+      } catch (e) {
+        console.warn('Could not save theme preference to localStorage');
+      }
       setTheme('light');
       updateActiveThemeButton('light');
     });
     
     document.getElementById('theme-dark').addEventListener('click', () => {
-      localStorage.setItem('theme', 'dark');
+      try {
+        localStorage.setItem('theme', 'dark');
+      } catch (e) {
+        console.warn('Could not save theme preference to localStorage');
+      }
       setTheme('dark');
       updateActiveThemeButton('dark');
     });
     
     document.getElementById('theme-system').addEventListener('click', () => {
-      localStorage.setItem('theme', 'system');
+      try {
+        localStorage.setItem('theme', 'system');
+      } catch (e) {
+        console.warn('Could not save theme preference to localStorage');
+      }
       setTheme('system');
       updateActiveThemeButton('system');
     });
@@ -211,7 +236,12 @@
     }
     
     // Set initial active button
-    updateActiveThemeButton(localStorage.getItem('theme') || 'system');
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      updateActiveThemeButton(savedTheme || 'system');
+    } catch (e) {
+      updateActiveThemeButton('system');
+    }
   </script>
 </body>
 </html> 
