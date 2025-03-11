@@ -31,8 +31,21 @@
       }
     });
   </script>
-  <!-- Minimal Vercel Analytics implementation -->
-  <script src="/js/analytics.js" async></script>
+  <!-- Inline Vercel Analytics - absolute minimal implementation -->
+  <script>
+    // Only load analytics in production (not on localhost)
+    if (!window.location.hostname.includes('localhost') && 
+        !window.location.hostname.includes('127.0.0.1')) {
+      
+      // Create script element
+      const script = document.createElement('script');
+      script.src = '/_vercel/insights/script.js';
+      script.async = true;
+      
+      // Append to document
+      document.head.appendChild(script);
+    }
+  </script>
 </head>
 <body class="bg-light dark:bg-dark min-h-screen">
   <!-- Background elements -->
