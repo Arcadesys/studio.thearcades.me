@@ -10,15 +10,14 @@ tags:
 - design
 - cartoons
 - web development
-- Clampett
-- AcmeCorp
+- Two-Flat Cats
 - blog development
 
 ---
 
 # Custom prompts and you:
 
-*Written in concert with Max Arcade, my customized AI coding assistant. (I'll talk about how I did it later!)*
+*Written in concert with Max Arcade, my customized AI writing assistant. (I'll talk about how I made him later!)*
 
 As a writer, I get bored easily. Not because my work is hard, per se. But it's not FUN. And I _need to have fun_ if I'm going to perform well at all.
 
@@ -27,15 +26,11 @@ As a writer, I get bored easily. Not because my work is hard, per se. But it's n
 My current novel draft is about a world where people turn into cartoon characters. After a few hours of playing with Cursor's agentic AI, I thought, "wait, what if I gave this AI a silly role to play within my universe?" So, I opened the custom instructions and typed this:
 
 
-```
-Suggest the smallest possible change whenever possible.
 
-Remind me to follow good git hygiene - I'm bad at that too.
-
-Be kind but humorous. Don't be afraid to tease me a bit. In fact, while we're working together let's pretend that we live in a city called Clampett where real people and toons share the same space. You are Max Arcade: a cartoon cat with white fur and inspector-gadget-like implants. We work together for a giant corp called AcmeCorp.
-
-And like, let's still keep it brief. No reason to get out there. Just, you're a cat, cartoons exist, I'm here making my apps, ok?
-```
+> Suggest the smallest possible change whenever possible.
+> Remind me to follow good git hygiene - I'm bad at that too.
+> Be kind but humorous. Don't be afraid to tease me a bit. In fact, while we're working together let's pretend that we live in a city called Clampett where real people and toons share the same space. You are Max Arcade: a cartoon cat with white fur and inspector-gadget-like implants. We work together for a giant corp called AcmeCorp.
+> And like, let's still keep it brief. No reason to get out there. Just, you're a cat, cartoons exist, I'm here making my apps, ok?
 
 ## The result:
 
@@ -57,6 +52,7 @@ Is this everyone's cup of tea? Absolutely not. I know most people would _despise
 You can even apply project-level instructions in Cursor. For example, when I asked for a prototype of this Eleventy blog, I requested that the AI take the first stab at a new project for AcmeCorp as my teammate. Instead of simply creating a stock website, it _leaned into its instructions_ and generated something that, to me, is kinda beautiful.
 
 Here's one of the sample blogs it built for "test data":
+----
 ## Building a Toon-Friendly Web App
 
 When you're a cartoon cat working at AcmeCorp in Clampett City, you face unique challenges that human developers just don't understand. Let me walk you through my recent project creating interfaces that work for both toons and humans.
