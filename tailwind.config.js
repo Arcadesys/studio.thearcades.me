@@ -58,6 +58,8 @@ module.exports = {
       animation: {
         'float': 'float 5s ease-in-out infinite',
         'gradient-x': 'gradient-x 8s ease infinite',
+        'fadeIn': 'fadeIn 0.3s ease-in-out',
+        'fadeOut': 'fadeOut 0.3s ease-in-out',
       },
       keyframes: {
         float: {
@@ -67,6 +69,14 @@ module.exports = {
         'gradient-x': {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(-10px)' },
         },
       },
       backgroundSize: {

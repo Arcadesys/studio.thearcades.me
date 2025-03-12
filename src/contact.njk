@@ -3,31 +3,31 @@ layout: base.njk
 title: Contact | The Arcades' Studio
 ---
 
-<div class="max-w-4xl mx-auto">
-  <div class="text-center mb-16">
-    <h1 class="gradient-text mb-8">
+<div class="max-w-4xl mx-auto px-4 sm:px-6">
+  <div class="text-center mb-10 md:mb-16">
+    <h1 class="gradient-text mb-6 md:mb-8">
       Get in Touch
     </h1>
     
-    <div class="flex justify-center mb-8">
-      <div class="w-32 h-32 relative">
+    <div class="flex justify-center mb-6 md:mb-8">
+      <div class="w-24 h-24 md:w-32 md:h-32 relative">
         <img src="/img/avatar/cartoon-cat.svg" alt="Cartoon Cat Avatar" class="w-full h-full animate-float">
       </div>
     </div>
     
-    <p class="text-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-soft dark:shadow-dark-soft inline-block max-w-2xl dark:text-gray-300 border-2 border-transparent hover:border-arcades-purple dark:hover:border-purple-500 transition-all duration-300">
+    <p class="text-lg md:text-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-soft dark:shadow-dark-soft inline-block max-w-2xl dark:text-gray-300 border-2 border-transparent hover:border-arcades-purple dark:hover:border-purple-500 transition-all duration-300">
       Have a question, project idea, or just want to say hello? I'd love to hear from you!
     </p>
   </div>
   
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-16">
     <!-- Contact Form -->
-    <div class="bg-white/90 dark:bg-gray-800/90 p-8 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300">
-      <h2 class="text-2xl font-display font-bold mb-6 text-arcades-blue dark:text-blue-300">
+    <div class="bg-white/90 dark:bg-gray-800/90 p-5 md:p-8 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300">
+      <h2 class="text-xl md:text-2xl font-display font-bold mb-4 md:mb-6 text-arcades-blue dark:text-blue-300">
         Send a Message
       </h2>
       
-      <form name="contact" method="POST" data-netlify="true" class="space-y-6">
+      <form name="contact" method="POST" data-netlify="true" class="space-y-4 md:space-y-6">
         <div>
           <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Name</label>
           <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-arcades-blue dark:focus:ring-blue-500 dark:text-white">
@@ -60,12 +60,12 @@ title: Contact | The Arcades' Studio
     </div>
     
     <!-- Contact Info -->
-    <div class="bg-white/90 dark:bg-gray-800/90 p-8 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-pink dark:hover:border-pink-500 transition-all duration-300">
-      <h2 class="text-2xl font-display font-bold mb-6 text-arcades-pink dark:text-pink-300">
+    <div class="bg-white/90 dark:bg-gray-800/90 p-5 md:p-8 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-pink dark:hover:border-pink-500 transition-all duration-300">
+      <h2 class="text-xl md:text-2xl font-display font-bold mb-4 md:mb-6 text-arcades-pink dark:text-pink-300">
         Contact Information
       </h2>
       
-      <div class="space-y-6">
+      <div class="space-y-4 md:space-y-6">
         <div class="flex items-start">
           <div class="bg-arcades-pink/10 dark:bg-pink-900/20 p-3 rounded-lg mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-arcades-pink dark:text-pink-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -131,44 +131,44 @@ title: Contact | The Arcades' Studio
   </div>
   
   <!-- FAQ Section -->
-  <div class="bg-white/90 dark:bg-gray-800/90 p-8 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-green dark:hover:border-green-500 transition-all duration-300 mb-16">
-    <h2 class="text-2xl font-display font-bold mb-6 text-arcades-green dark:text-green-300">
+  <div class="bg-white/90 dark:bg-gray-800/90 p-5 md:p-8 rounded-xl shadow-medium dark:shadow-dark-medium border-2 border-transparent hover:border-arcades-green dark:hover:border-green-500 transition-all duration-300 mb-10 md:mb-16">
+    <h2 class="text-xl md:text-2xl font-display font-bold mb-4 md:mb-6 text-arcades-green dark:text-green-300">
       Frequently Asked Questions
     </h2>
     
-    <div class="space-y-8">
+    <div class="space-y-6 md:space-y-8">
       <!-- Max introduces himself -->
       <div class="flex items-start">
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-3 md:mr-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/maxarcade.jpeg" alt="Max Arcade" class="w-full h-full object-cover">
           </div>
         </div>
-        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl rounded-tl-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300">Hi there! I'm Max Arcade, Austen's AI assistant. I'll be answering some common questions about working with Austen. Feel free to reach out if you have more questions!</p>
+        <div class="bg-gray-100 dark:bg-gray-700 p-3 md:p-4 rounded-xl rounded-tl-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">Hi there! I'm Max Arcade, Austen's AI assistant. I'll be answering some common questions about working with Austen. Feel free to reach out if you have more questions!</p>
         </div>
       </div>
       
       <!-- Question 1 -->
       <div class="flex items-start">
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-3 md:mr-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/maxarcade.jpeg" alt="Max Arcade" class="w-full h-full object-cover">
           </div>
         </div>
-        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl rounded-tl-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300 font-medium">What can Austen do for you?</p>
+        <div class="bg-gray-100 dark:bg-gray-700 p-3 md:p-4 rounded-xl rounded-tl-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 font-medium">What can Austen do for you?</p>
         </div>
       </div>
       
       <div class="flex items-start justify-end">
-        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-4 rounded-xl rounded-tr-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300">
+        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-3 md:p-4 rounded-xl rounded-tr-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">
             I'm a seasoned <a href="https://www.thearcades.me/resume/TuckerAustenScrumMaster.pdf" target="_blank" class="text-arcades-blue dark:text-blue-300 hover:underline">Scrum Master</a> with 17 years experience wrangling developers and herding project cats. I bring old-school agile wisdom with new-school technical chops. Aspiring developer with a taste for old-web simplicity (no cookie popups here!). And when I'm not coding or managing sprints, I'm crafting novels — if you want books, we got books! <a href="https://www.thearcades.me/resume/TuckerAustenScrumMaster.pdf" target="_blank" class="text-arcades-blue dark:text-blue-300 hover:underline">Check out my full resume</a> for the professional details.
           </p>
         </div>
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-3 md:ml-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/austen.jpeg" alt="Austen Tucker" class="w-full h-full object-cover">
           </div>
         </div>
@@ -176,24 +176,24 @@ title: Contact | The Arcades' Studio
       
       <!-- Question 2 -->
       <div class="flex items-start">
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-3 md:mr-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/maxarcade.jpeg" alt="Max Arcade" class="w-full h-full object-cover">
           </div>
         </div>
-        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl rounded-tl-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300 font-medium">What's your Value Proposition?</p>
+        <div class="bg-gray-100 dark:bg-gray-700 p-3 md:p-4 rounded-xl rounded-tl-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 font-medium">What's your Value Proposition?</p>
         </div>
       </div>
       
       <div class="flex items-start justify-end">
-        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-4 rounded-xl rounded-tr-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300">I bring 17 years of experience as a Scrum Master, Agile Coach, and Program Manager, specializing in transforming teams and delivering results at scale. My superpower is blending old-school agile wisdom with new-school technical chops—whether it's slashing planning time by 50%, increasing feature throughput by 400%, or driving AI adoption to make teams more efficient.</p>
+        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-3 md:p-4 rounded-xl rounded-tr-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">I bring 17 years of experience as a Scrum Master, Agile Coach, and Program Manager, specializing in transforming teams and delivering results at scale. My superpower is blending old-school agile wisdom with new-school technical chops—whether it's slashing planning time by 50%, increasing feature throughput by 400%, or driving AI adoption to make teams more efficient.</p>
           <p class="text-gray-700 dark:text-gray-300 mt-3">I excel at breaking down complex projects into manageable, high-impact sprints, and I'm passionate about building team cultures that are both productive and sustainable. Beyond project management, I'm hands-on with development and automation, ensuring that agile isn't just a process—it's a system that works for the people using it.</p>
           <p class="text-gray-700 dark:text-gray-300 mt-3">If you're looking for someone who can balance strategy with execution, coach teams to success, and optimize workflows with AI and data-driven insights, I'm your person.</p>
         </div>
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-3 md:ml-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/austen.jpeg" alt="Austen Tucker" class="w-full h-full object-cover">
           </div>
         </div>
@@ -201,23 +201,23 @@ title: Contact | The Arcades' Studio
       
       <!-- Question 3 -->
       <div class="flex items-start">
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-3 md:mr-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/maxarcade.jpeg" alt="Max Arcade" class="w-full h-full object-cover">
           </div>
         </div>
-        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl rounded-tl-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300 font-medium">Are you Represented?</p>
+        <div class="bg-gray-100 dark:bg-gray-700 p-3 md:p-4 rounded-xl rounded-tl-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 font-medium">Are you Represented?</p>
         </div>
       </div>
       
       <div class="flex items-start justify-end">
-        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-4 rounded-xl rounded-tr-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300">While I'm not currently represented by an agent, I'm actively seeking the right partnership. I'm working with Argyll Press on publishing projects, and I bring a unique blend of technical expertise, agile leadership, and storytelling to the table. Whether it's navigating the world of AI-driven productivity, crafting engaging narratives, or leading high-impact teams, I thrive at the intersection of innovation and creativity.</p>
+        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-3 md:p-4 rounded-xl rounded-tr-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">While I'm not currently represented by an agent, I'm actively seeking the right partnership. I'm working with Argyll Press on publishing projects, and I bring a unique blend of technical expertise, agile leadership, and storytelling to the table. Whether it's navigating the world of AI-driven productivity, crafting engaging narratives, or leading high-impact teams, I thrive at the intersection of innovation and creativity.</p>
           <p class="text-gray-700 dark:text-gray-300 mt-3">If you're an agent looking for an author who can bridge the gap between technology, business, and compelling storytelling—or if you just love a good genre-bending novel—I'd love to connect!</p>
         </div>
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-3 md:ml-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/austen.jpeg" alt="Austen Tucker" class="w-full h-full object-cover">
           </div>
         </div>
@@ -225,22 +225,22 @@ title: Contact | The Arcades' Studio
       
       <!-- Question 4 -->
       <div class="flex items-start">
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-3 md:mr-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/maxarcade.jpeg" alt="Max Arcade" class="w-full h-full object-cover">
           </div>
         </div>
-        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl rounded-tl-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300 font-medium">Do you work with clients outside of Chicago?</p>
+        <div class="bg-gray-100 dark:bg-gray-700 p-3 md:p-4 rounded-xl rounded-tl-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 font-medium">Do you work with clients outside of Chicago?</p>
         </div>
       </div>
       
       <div class="flex items-start justify-end">
-        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-4 rounded-xl rounded-tr-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300">Absolutely! I have over a decade of experience working with offshore teams - I was collaborating with folks in Uruguay over old conference bridges before remote work was trendy. Distance is no barrier to successful projects, and I'm comfortable working across time zones and cultural contexts. Whether you're across town or across the globe, we can create an effective workflow that meets your needs.</p>
+        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-3 md:p-4 rounded-xl rounded-tr-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">Absolutely! I have over a decade of experience working with offshore teams - I was collaborating with folks in Uruguay over old conference bridges before remote work was trendy. Distance is no barrier to successful projects, and I'm comfortable working across time zones and cultural contexts. Whether you're across town or across the globe, we can create an effective workflow that meets your needs.</p>
         </div>
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-3 md:ml-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/austen.jpeg" alt="Austen Tucker" class="w-full h-full object-cover">
           </div>
         </div>
@@ -248,22 +248,22 @@ title: Contact | The Arcades' Studio
       
       <!-- Question 5 -->
       <div class="flex items-start">
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-3 md:mr-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/maxarcade.jpeg" alt="Max Arcade" class="w-full h-full object-cover">
           </div>
         </div>
-        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl rounded-tl-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300 font-medium">And who am I? What's with the cartoon cat?</p>
+        <div class="bg-gray-100 dark:bg-gray-700 p-3 md:p-4 rounded-xl rounded-tl-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 font-medium">And who am I? What's with the cartoon cat?</p>
         </div>
       </div>
       
       <div class="flex items-start justify-end">
-        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-4 rounded-xl rounded-tr-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300">This is Max Arcade, my AI assistant! I've customized my AI tools with a fun persona to make the creative process more enjoyable. While I handle all the actual work, Max helps me stay organized and adds a touch of whimsy to my workflow. It's just one of the ways I try to keep creativity at the center of everything I do.</p>
+        <div class="bg-arcades-blue/10 dark:bg-blue-900/20 p-3 md:p-4 rounded-xl rounded-tr-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">This is Max Arcade, my AI assistant! I've customized my AI tools with a fun persona to make the creative process more enjoyable. While I handle all the actual work, Max helps me stay organized and adds a touch of whimsy to my workflow. It's just one of the ways I try to keep creativity at the center of everything I do.</p>
         </div>
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft ml-3 md:ml-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/austen.jpeg" alt="Austen Tucker" class="w-full h-full object-cover">
           </div>
         </div>
@@ -271,13 +271,13 @@ title: Contact | The Arcades' Studio
       
       <!-- Max closing -->
       <div class="flex items-start">
-        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-lg shadow-soft dark:shadow-dark-soft mr-3 md:mr-4 flex-shrink-0">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-lg">
             <img src="/img/avatar/maxarcade.jpeg" alt="Max Arcade" class="w-full h-full object-cover">
           </div>
         </div>
-        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl rounded-tl-none max-w-[80%]">
-          <p class="text-gray-700 dark:text-gray-300">Have more questions? Feel free to use the contact form to reach out directly to Austen!</p>
+        <div class="bg-gray-100 dark:bg-gray-700 p-3 md:p-4 rounded-xl rounded-tl-none max-w-[85%] md:max-w-[80%]">
+          <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">Have more questions? Feel free to use the contact form to reach out directly to Austen!</p>
         </div>
       </div>
     </div>
@@ -286,11 +286,11 @@ title: Contact | The Arcades' Studio
   <!-- Call to Action -->
   <div class="text-center">
     <div class="inline-block bg-gradient-to-r from-arcades-blue to-arcades-purple p-1 rounded-xl">
-      <div class="bg-white dark:bg-gray-800 rounded-lg px-8 py-6">
-        <h2 class="text-2xl font-display font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-arcades-blue to-arcades-purple">
+      <div class="bg-white dark:bg-gray-800 rounded-lg px-5 py-4 md:px-8 md:py-6">
+        <h2 class="text-xl md:text-2xl font-display font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-arcades-blue to-arcades-purple">
           Ready to start your project?
         </h2>
-        <p class="text-gray-700 dark:text-gray-300 mb-6">Let's create something amazing together!</p>
+        <p class="text-gray-700 dark:text-gray-300 mb-4 md:mb-6">Let's create something amazing together!</p>
         <a href="#" class="btn btn-primary inline-flex items-center" onclick="document.getElementById('name').focus(); return false;">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
