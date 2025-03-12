@@ -253,6 +253,15 @@ p {
   .gradient-text {
     @apply text-3xl leading-tight;
   }
+  
+  /* Improve mobile menu touch targets */
+  #mobile-nav a {
+    @apply py-3 px-4 block w-full;
+  }
+  
+  #mobile-nav .nav-link {
+    @apply my-1;
+  }
 }
 
 /* Fix for mobile navigation */

@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (hamburgerButton && mobileNav) {
     // Toggle mobile menu
-    hamburgerButton.addEventListener('click', function() {
+    hamburgerButton.addEventListener('click', function(e) {
+      e.stopPropagation(); // Prevent event from bubbling up
+      
       // Toggle the mobile nav
       if (mobileNav.classList.contains('hidden')) {
         // Show the menu with animation
@@ -36,6 +38,39 @@ document.addEventListener('DOMContentLoaded', function() {
           `;
         }, 300);
       }
+    });
+    
+    // Prevent menu from closing when clicking inside it
+    mobileNav.addEventListener('click', function(e) {
+      e.stopPropagation(); // Stop the click from propagating to document
+    });
+    
+    // Close mobile menu when clicking on a menu link
+    const mobileNavLinks = mobileNav.querySelectorAll('a');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        // Only close if it's not an external link or anchor link
+        if (!this.getAttribute('href').startsWith('#') && 
+            !this.getAttribute('href').startsWith('http') && 
+            !this.getAttribute('target')) {
+          
+          // Hide the menu with animation
+          mobileNav.classList.add('animate-fadeOut');
+          
+          // After animation completes, hide the menu
+          setTimeout(() => {
+            mobileNav.classList.add('hidden');
+            mobileNav.classList.remove('animate-fadeIn', 'animate-fadeOut');
+            
+            // Change X back to hamburger
+            hamburgerButton.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            `;
+          }, 300);
+        }
+      });
     });
     
     // Close mobile menu when clicking outside
