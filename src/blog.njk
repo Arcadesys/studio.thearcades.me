@@ -61,7 +61,7 @@ title: Blog | The Arcades' Studio
           Subscribe to my newsletter and never miss a new post or project update. Perfect for both toons and humans in Clampett City!
         </p>
         
-        <form id="modal-subscription-form" action="https://thearcades.us19.list-manage.com/subscribe/post?u=ecc9ef94adf91d9e11ffbed05&amp;id=0ea15d3548&amp;f_id=00689ae7f0" method="post" class="space-y-4" target="_blank">
+        <form id="modal-subscription-form" action="https://thearcades.us19.list-manage.com/subscribe/post?u=ecc9ef94adf91d9e11ffbed05&amp;id=0ea15d3548&amp;f_id=00689ae7f0" method="post" class="space-y-4 bg-white dark:bg-gray-800" target="_blank">
           <div>
             <label for="mce-EMAIL" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Email Address <span class="text-red-500">*</span></label>
             <input type="email" id="mce-EMAIL" name="EMAIL" required 
@@ -70,24 +70,10 @@ title: Blog | The Arcades' Studio
           </div>
           
           <div>
-            <label for="mce-FNAME" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">First Name</label>
+            <label for="mce-FNAME" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Name (Optional)</label>
             <input type="text" id="mce-FNAME" name="FNAME" 
                   class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-arcades-blue dark:focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" 
                   placeholder="What should I call you?">
-          </div>
-          
-          <div>
-            <label for="mce-LNAME" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Last Name</label>
-            <input type="text" id="mce-LNAME" name="LNAME" 
-                  class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-arcades-blue dark:focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" 
-                  placeholder="Optional">
-          </div>
-          
-          <div>
-            <label for="mce-COMPANY" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Company</label>
-            <input type="text" id="mce-COMPANY" name="COMPANY" 
-                  class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-arcades-blue dark:focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" 
-                  placeholder="Optional">
           </div>
           
           <div class="flex items-center">
@@ -255,30 +241,19 @@ title: Blog | The Arcades' Studio
       });
     }
     
-    // Handle Mailchimp response display
+    // Handle form submission
     if (form) {
-      // Show success/error messages from Mailchimp
-      const showResponse = function(responseElement, message) {
-        const element = document.getElementById(responseElement);
-        if (element) {
-          element.innerHTML = message;
-          element.classList.remove('hidden');
-          setTimeout(() => {
-            element.classList.add('hidden');
-          }, 5000);
-        }
-      };
-      
-      // Store subscription info in localStorage
       form.addEventListener('submit', function(e) {
+        // Store subscription info in localStorage
         const email = document.getElementById('mce-EMAIL').value;
-        
         if (email) {
-          // Store that the user has subscribed in localStorage
           localStorage.setItem('subscribed', 'true');
           localStorage.setItem('subscriberEmail', email);
           localStorage.setItem('subscriberName', document.getElementById('mce-FNAME').value);
         }
+        
+        // Let the form submit normally to Mailchimp
+        console.log('Submitting to Mailchimp:', email);
       });
     }
   });
