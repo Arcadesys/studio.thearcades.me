@@ -23,7 +23,7 @@ Writing is like bashing your head against a wall because a story burns so deeply
 
 So yeah. I'm Sisyphus, rolling my storytelling boulder uphill, forever.
 
-But every so often, you get a lay-up—-something _AI_ can actually help with. Not just organizing drafts, but brainstorming ideas, refining prose, and even acting as an editor that never sleeps.
+But every so often, you get a lay-up—something _AI_ can actually help with. Not just organizing drafts, but brainstorming ideas, refining prose, and even acting as an editor that never sleeps.
 
 ---
 
@@ -53,7 +53,7 @@ What I really needed was a direct line to engaged readers. Usually, that would l
 
 > **Give away your work to anyone who wants it. Charge for those willing to pay.**
 
-Unfortunately, most SaaS solutions are built around monetization, gated content, or newsletters—not actual engagement. None of them quite fit my needs.
+Unfortunately, most SaaS solutions are built around monetization, gated content, or newsletters—all well and good, but they're all trying to lock me into a platform. Therefore, none of them quite fit my needs.
 
 ---
 
@@ -79,7 +79,9 @@ Here's how I use it:
 - Actors picture the audience naked.
 - Writers? We rant into the void.
 
-But AI makes for a much better void. It's a brainstorming partner, a sounding board, and—when you're working solo—the only "co-worker" you've got.
+But AI makes for a much better void. It's a brainstorming partner, a sounding board, and—when you're working solo—the only "co-worker" you've got. And if you use some of the more advanced frontier models, you can literally _talk out your coding problems_ with an infinitely patient machine that will never, ever judge you for a dumb question.
+
+I know. It's nuts.
 
 ---
 
@@ -87,7 +89,7 @@ But AI makes for a much better void. It's a brainstorming partner, a sounding bo
 
 {% youtube "1_Z5iir0PMo", "Rapid Prototyping Demo" %}
 
-Since we're **vibe-coding**, we won't waste time slogging through boilerplate. Instead, we focus on the design and flow _first._
+Since we're **vibe-coding**, we won't waste time slogging through boilerplate. Instead, we focus on the design and flow _first_, so that we can define our data contract before we get into trouble down the road.
 
 Before unleashing something as powerful as Claude 3.7 on an empty codebase, you need a clear vision. Thankfully, that's never been easier.
 
@@ -109,7 +111,7 @@ Instead of waiting for human feedback, I can:
 - Push to a dev server
 - Have ChatGPT critique the results
 
-Does it hallucinate? Sure, sometimes. But 95% of the time, the feedback is _solid._ If those were blackjack odds, I'd play them all day.
+Does it hallucinate? Sure, sometimes. But 95% of the time, the feedback is _solid_. If those were blackjack odds, I'd play them all day.
 
 ---
 
@@ -118,8 +120,6 @@ Does it hallucinate? Sure, sometimes. But 95% of the time, the feedback is _soli
 Behold: a brand-new intake funnel for my latest finished manuscript, _The Two-Flat Cats_!
 
 [https://www.thearcades.me/previews/tfcch1](https://www.thearcades.me/previews/tfcch1)
-
-_(Insert image here)_
 
 Now, the site works _for me_ as a writer:
 
@@ -137,18 +137,29 @@ From concept to implementation to refinement. _Hours._
 ---
 
 ## ...How do I do that?
-Stay tuned. Over the next few weeks I'm going to break down each step of the above workflow so that anyone, regardless of their coding experience, can reap the benefits of the vibe coding revolution. Click below to join my mailing list, or follow me on [linkedin](https://www.linkedin.com/in/austen-tucker-0968a914/)
+
+Stay tuned. Over the next few weeks I'm going to break down each step of the above workflow so that anyone, regardless of their coding experience, can reap the benefits of the vibe coding revolution. Click below to join my mailing list, or follow me on [LinkedIn](https://www.linkedin.com/in/austen-tucker-0968a914/).
 
 ## The Future of Vibe-Coding
 
-The biggest shift isn't just how I write _code._ It's how I approach **creating itself.**
+The biggest shift isn't just how I write _code_. It's how I approach **creating itself.**
 
 By integrating AI into my workflow, I'm:
 
-- More confident tackling ambitious projects.
-- More willing to experiment.
-- More excited about engaging readers in new ways.
+- More confident tackling ambitious projects
+- More willing to experiment
+- More excited about engaging readers in new ways
 
 We're at the beginning of a creative renaissance where AI doesn't replace creativity—it **enhances** it. And now? My storytelling boulder still rolls uphill…
 
 But I've got a lot more control over where it goes.
+
+## Vibe coding is _NOT_ a substitute for knowing how to code!
+
+Let me reframe it for the people in the back:
+
+_You will still need an engineer to drive this thing._
+
+It's a monster, capable of great good but also getting you into trouble if you just trust the AI completely. I'll talk about ways I learned to tame its ambition in future posts, but the central learning I took away from this whole experience is that Vibe Coding is still, well, _coding_. You're still solving the same problems, designing the same patterns and solutions, only this time you don't have to google everything on Stack Overflow first. If you don't have knowledge of common software development patterns this tool will probably not do you any good.
+
+But if you know what you're doing? This is nothing short of a revolution.
