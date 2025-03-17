@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The Arcades Studio - A blog and portfolio site",
   "main": "index.js",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "build": "npx @11ty/eleventy && npx tailwindcss -i ./src/css/style.css -o ./_site/css/style.css --minify",
     "dev:eleventy": "npx @11ty/eleventy --serve",
