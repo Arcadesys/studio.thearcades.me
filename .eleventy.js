@@ -15,6 +15,34 @@ module.exports = function(eleventyConfig) {
   // Watch for changes to the CSS files
   eleventyConfig.addWatchTarget("src/css/");
   
+  // Add BrowserSync configuration
+  eleventyConfig.setBrowserSyncConfig({
+    callbacks: {
+      ready: function(err, bs) {
+        bs.addMiddleware("*", (req, res) => {
+          // 404 handling
+          const content_404 = eleventyConfig.dir.output + "/404.html";
+          const fs = require("fs");
+          if (fs.existsSync(content_404)) {
+            res.write(fs.readFileSync(content_404));
+            res.writeHead(404);
+          }
+          res.end();
+        });
+      }
+    },
+    ui: false,
+    ghostMode: false,
+    snippetOptions: {
+      rule: {
+        match: /<\/head>/i,
+        fn: function(snippet, match) {
+          return snippet + match;
+        }
+      }
+    }
+  });
+  
   // Add filters
   const filters = require('./src/_data/filters.js');
   Object.keys(filters).forEach(filterName => {
