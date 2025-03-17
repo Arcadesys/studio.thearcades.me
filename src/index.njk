@@ -83,49 +83,16 @@ title: Home | The Arcades' Studio
           </div>
         </div>
       </div>
-      <div class="w-full md:w-1/2">
-        <form id="subscription-form" action="https://thearcades.us19.list-manage.com/subscribe/post" method="POST" class="bg-white/90 dark:bg-gray-800/90 p-6 rounded-xl shadow-soft dark:shadow-dark-soft border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300">
-          <!-- Mailchimp required hidden fields -->
-          <input type="hidden" name="u" value="afef69cb736379e6b35215432e6fcd2b">
-          <input type="hidden" name="id" value="0ea15d3548">
-          <!-- Redirect URLs -->
-          <input type="hidden" name="REDIRECT" value="/subscribe-success/">
-          <input type="hidden" name="ERROR_REDIRECT" value="/mailchimp-error/">
-          <input type="hidden" name="f_id" value="0ea15d3548">
-          <input type="hidden" name="SOURCE" value="website">
-          <!-- Debug field to help with troubleshooting -->
-          <input type="hidden" name="tags" value="website-signup">
-          
-          <div class="mb-4">
-            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Email Address</label>
-            <input type="email" id="email" name="EMAIL" required 
-                  class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-arcades-blue dark:focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" 
-                  placeholder="your.email@example.com">
-          </div>
-          <div class="mb-4">
-            <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Name (Optional)</label>
-            <input type="text" id="name" name="FNAME" 
-                  class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-arcades-blue dark:focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" 
-                  placeholder="What should I call you?">
-          </div>
-          <div class="flex items-center mb-4">
-            <input type="checkbox" id="consent" name="gdpr[27705]" value="Y" required class="h-5 w-5 text-arcades-blue focus:ring-arcades-blue dark:focus:ring-blue-500 rounded">
-            <label for="consent" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">
-              I agree to receive email newsletters (you can unsubscribe anytime)
-            </label>
-          </div>
-          <!-- The following prevents bot signups -->
-          <div style="position: absolute; left: -5000px;" aria-hidden="true">
-            <input type="text" name="b_afef69cb736379e6b35215432e6fcd2b_0ea15d3548" tabindex="-1" value="">
-          </div>
-          <button type="submit" class="w-full btn btn-primary group">
-            <span class="group-hover:mr-2 transition-all">Subscribe</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </button>
-          <div id="subscription-message" class="mt-3 text-center hidden"></div>
-        </form>
+      <div class="w-full md:w-1/2 flex items-center justify-center">
+        <a href="http://eepurl.com/i_PT76" target="_blank" class="btn btn-primary text-xl py-4 px-8 inline-flex items-center group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 group-hover:animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"/>
+          </svg>
+          Subscribe to Newsletter
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
       </div>
     </div>
   </div>
@@ -178,70 +145,4 @@ title: Home | The Arcades' Studio
       </div>
     {% endif %}
   </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('subscription-form');
-    const messageDiv = document.getElementById('subscription-message');
-    
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        // Validate the form before submission
-        const email = document.getElementById('email').value;
-        const name = document.getElementById('name').value;
-        const consent = document.getElementById('consent').checked;
-        
-        if (!email || !consent) {
-          e.preventDefault();
-          messageDiv.innerHTML = `<p class="text-red-500 dark:text-red-400 font-medium">Please fill in all required fields.</p>`;
-          messageDiv.classList.remove('hidden');
-          return;
-        }
-        
-        // Store that the user has subscribed in localStorage
-        localStorage.setItem('subscribed', 'true');
-        localStorage.setItem('subscriberEmail', email);
-        localStorage.setItem('subscriberName', name);
-        
-        // Show a loading message
-        messageDiv.innerHTML = `<p class="text-arcades-blue dark:text-blue-300 font-medium">Submitting your information...</p>`;
-        messageDiv.classList.remove('hidden');
-        
-        // Add a fallback redirect in case Mailchimp's redirect doesn't work
-        setTimeout(function() {
-          // If we're still on the page after 5 seconds, redirect manually
-          window.location.href = '/subscribe-success/';
-        }, 5000);
-        
-        // Note: Mailchimp will handle the actual form submission and redirect
-      });
-    }
-    
-    // Check if user has just subscribed (coming back from Mailchimp)
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('subscribe') && urlParams.get('subscribe') === 'success' && localStorage.getItem('subscribed') === 'true') {
-      const email = localStorage.getItem('subscriberEmail');
-      const name = localStorage.getItem('subscriberName');
-      
-      // Scroll to the subscription form
-      const subscriptionForm = document.getElementById('subscription-form');
-      if (subscriptionForm) {
-        subscriptionForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      
-      messageDiv.innerHTML = `<p class="text-arcades-green dark:text-green-300 font-medium">Thanks${name ? ' ' + name : ''}! Your email (${email}) has been added to our list.</p>`;
-      messageDiv.classList.remove('hidden');
-      
-      // Clear the form
-      if (form) {
-        form.reset();
-      }
-      
-      // Clear the subscription data
-      localStorage.removeItem('subscribed');
-      localStorage.removeItem('subscriberEmail');
-      localStorage.removeItem('subscriberName');
-    }
-  });
-</script> 
+</div> 

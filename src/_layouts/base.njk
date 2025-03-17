@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>{{ title | default("Studio | The Arcades") }}</title>
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="alternate" href="{{ site.url }}/feed.xml" type="application/atom+xml" title="{{ site.title }}">
   <link rel="alternate" href="{{ site.url }}/feed.json" type="application/json" title="{{ site.title }}">
+  
+  <!-- jQuery for Mailchimp form validation -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  
   <script>
     // Simple theme handling with manual toggle but no storage
     let currentTheme = 'system'; // Default to system
