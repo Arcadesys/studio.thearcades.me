@@ -84,18 +84,8 @@ title: Home | The Arcades' Studio
         </div>
       </div>
       <div class="w-full md:w-1/2">
-        <form id="subscription-form" action="https://thearcades.us19.list-manage.com/subscribe/post" method="POST" class="bg-white/90 dark:bg-gray-800/90 p-6 rounded-xl shadow-soft dark:shadow-dark-soft border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300">
-          <!-- Mailchimp required hidden fields -->
-          <input type="hidden" name="u" value="afef69cb736379e6b35215432e6fcd2b">
-          <input type="hidden" name="id" value="0ea15d3548">
-          <!-- Redirect URLs -->
-          <input type="hidden" name="REDIRECT" value="/subscribe-success/">
-          <input type="hidden" name="ERROR_REDIRECT" value="/mailchimp-error/">
-          <input type="hidden" name="f_id" value="0ea15d3548">
-          <input type="hidden" name="SOURCE" value="website">
-          <!-- Debug field to help with troubleshooting -->
-          <input type="hidden" name="tags" value="website-signup">
-          
+        <form id="subscription-form" action="https://thearcades.us19.list-manage.com/subscribe/post?u=ecc9ef94adf91d9e11ffbed05&amp;id=0ea15d3548&amp;f_id=00689ae7f0" method="POST" class="bg-white/90 dark:bg-gray-800/90 p-6 rounded-xl shadow-soft dark:shadow-dark-soft border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300">
+          <!-- Hidden fields are not needed when using the full URL with parameters -->
           <div class="mb-4">
             <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Email Address</label>
             <input type="email" id="email" name="EMAIL" required 
