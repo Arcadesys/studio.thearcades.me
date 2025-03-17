@@ -6,7 +6,8 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "_site",
-        "nodeVersion": "20.x"
+        "nodeVersion": "20.x",
+        "installCommand": "npm install yaml js-yaml postcss-load-config"
       }
     }
   ],
