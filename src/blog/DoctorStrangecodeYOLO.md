@@ -23,6 +23,7 @@ So there I was, playing it safe with Cursor, coding my weekend project BlindTab 
 Then I found it.
 
 Buried in the settings like some ancient forbidden relic: **YOLO mode.**
+![They don't call it YOLO anymore, but it'll always be YOLO in my heart.](/img/yolo.jpg)
 
 If you're unfamiliar, YOLO mode is Cursor's way of saying, _"Don't worry about it, bro, I got this."_ It generates code completely hands-off, with zero confirmations or safety nets.
 
@@ -71,7 +72,7 @@ I felt like a coding god.
 
 ![BlindTab prototype screenshot](/img/blog/blindtab-prototype.png)
 
-(You may notice that the prototype doesn't have data. We'll come back to that.)
+(You may notice that the prototype doesn't have data. We'll come back to that tomorrow.)
 
 Satisfied and more than a little confident, I tried to make a pull request and realized, to my horror, that I had created a **5,000-line** monster.
 
@@ -101,7 +102,7 @@ That's right. After hours of riding the vibe-coding high, I had to **delete ever
 Control + A. Delete.  
 Commit message: **"lmao"**
 
-The final lesson? The only setup that actually worked was Neon and Vercel—the thing I _should_ have used from the start.
+The final lesson? YOLO coding is fun, but if you don't guide the AI, you're in for a _world_ of hurt!
 
 ---
 
