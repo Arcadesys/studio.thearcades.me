@@ -23,7 +23,7 @@ So there I was, playing it safe with Cursor, coding my weekend project BlindTab 
 Then I found it.
 
 Buried in the settings like some ancient forbidden relic: **YOLO mode.**
-![They don't call it YOLO anymore, but it'll always be YOLO in my heart.](/img/yolo.jpg)
+![They don't call it YOLO anymore, but it'll always be YOLO in my heart.](/img/blog/yolo.jpg)
 
 If you're unfamiliar, YOLO mode is Cursor's way of saying, _"Don't worry about it, bro, I got this."_ It generates code completely hands-off, with zero confirmations or safety nets.
 
