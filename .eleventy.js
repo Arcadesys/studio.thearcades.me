@@ -3,6 +3,18 @@ module.exports = function(eleventyConfig) {
   const pluginRss = require("@11ty/eleventy-plugin-rss");
   eleventyConfig.addPlugin(pluginRss);
   
+  // Add custom shortcode for captioned images
+  eleventyConfig.addShortcode("captionedImage", function(src, alt) {
+    return `<figure class="my-8">
+      <img src="${src}" 
+           alt="${alt}" 
+           class="w-full rounded-xl shadow-medium dark:shadow-dark-medium"
+           loading="lazy"
+           decoding="async">
+      <figcaption class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400 italic">${alt}</figcaption>
+    </figure>`;
+  });
+  
   // Copy the `css` directory to the output
   eleventyConfig.addPassthroughCopy("src/css");
   

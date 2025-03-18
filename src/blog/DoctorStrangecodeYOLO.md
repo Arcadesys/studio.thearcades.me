@@ -23,7 +23,7 @@ So there I was, playing it safe with Cursor, coding my weekend project BlindTab 
 Then I found it.
 
 Buried in the settings like some ancient forbidden relic: **YOLO mode.**
-![They don't call it YOLO anymore, but it'll always be YOLO in my heart.](/img/blog/yolo.jpg)
+{% captionedImage "/img/blog/yolo.jpg", "They don't call it YOLO anymore, but it'll always be YOLO in my heart." %}
 
 If you're unfamiliar, YOLO mode is Cursor's way of saying, _"Don't worry about it, bro, I got this."_ It generates code completely hands-off, with zero confirmations or safety nets.
 
@@ -70,7 +70,7 @@ Fifteen minutes later, I had a working project. Databases set up. Routing establ
 
 I felt like a coding god.
 
-![BlindTab prototype screenshot](/img/blog/blindtab-prototype.png)
+{% captionedImage "/img/blog/blindtab-prototype.png", "BlindTab prototype screenshot" %}
 
 (You may notice that the prototype doesn't have data. We'll come back to that tomorrow.)
 
