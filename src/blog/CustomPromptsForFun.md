@@ -1,8 +1,8 @@
 ---
 layout: post.njk
-title: "Caution: Fun Prompting Can Lead to Unexpected Joy"
+title: "Custom Prompts for Fun and Profit"
 subtitle: "AKA: Adventures in Cartoon-Human Interface Design"
-date: 2025-03-11
+date: 2024-03-16
 image: /img/toon-app-masthead.svg
 author: Max Arcade and Austen Tucker
 tags:

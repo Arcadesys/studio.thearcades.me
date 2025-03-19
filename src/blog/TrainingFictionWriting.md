@@ -1,9 +1,8 @@
 ---
 layout: post.njk
-title: How to Learn Anything (By Writing Fiction First)
-subtitle: Lessons from fiction writing that apply to mastering any skill
-description: Discover how the principles of fiction writing can help you learn any new skill more effectively, from coding to business.
-date: 2025-03-11
+title: "Training Fiction Writing with AI"
+description: "How I used AI to level up my writing game"
+date: 2024-03-15
 author: Austen Tucker
 tags:
   - post
