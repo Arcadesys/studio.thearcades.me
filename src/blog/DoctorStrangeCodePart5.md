@@ -4,7 +4,7 @@ title: "Doctor StrangeCode part 5 - Claude, the Accessibility Guru"
 date: "2024-03-29"
 author: "Austen Tucker"
 description: "How AI Made Coding Accessible Again"
-image: "/img/blog/claude-accessibility.jpg"
+image: "/img/cursorsample.jpg"
 tags: 
     - post
     - accessibility
