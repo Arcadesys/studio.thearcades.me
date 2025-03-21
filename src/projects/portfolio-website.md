@@ -1,4 +1,5 @@
 ---
+layout: project.njk
 title: Portfolio Website
 subtitle: A modern, responsive portfolio built with Eleventy and TailwindCSS
 date: 2023-03-15
@@ -15,8 +16,8 @@ technologies:
   - TailwindCSS
   - Nunjucks
 liveUrl: https://thearcades.me
-repoUrl: https://github.com/arcades/studio.thearcades.me
-icon: /img/avatar/demon-character.svg
+repoUrl: https://github.com/arcades/arcadeprofile
+icon: /img/arcadesmescreenshot.jpg
 images:
   - /img/projects/portfolio-dark.jpg
   - /img/projects/portfolio-light.jpg
