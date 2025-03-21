@@ -119,10 +119,8 @@
     <div class="controls">
         <select id="type-selector">
             <option value="macular">Macular Degeneration</option>
+            <option value="advanced-macular">Advanced Macular Degeneration</option>
             <option value="rp">Retinitis Pigmentosa</option>
-            <option value="blur">Simple Blur</option>
-            <option value="distortion">Distortion</option>
-            <option value="darkspot">Dark Spot</option>
         </select>
         <div class="slider-container">
             <label for="size-slider">Size:</label>
@@ -206,19 +204,7 @@
                             blurOverlay.style.boxShadow = 'none';
                             blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.2)`;
                             break;
-                        case 'blur':
-                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-                            blurOverlay.style.mixBlendMode = 'normal';
-                            blurOverlay.style.boxShadow = 'none';
-                            blurOverlay.style.filter = `blur(${blurIntensity}px) saturate(0.7)`;
-                            break;
-                        case 'distortion':
-                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
-                            blurOverlay.style.mixBlendMode = 'overlay';
-                            blurOverlay.style.boxShadow = 'none';
-                            blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.5) brightness(1.2) hue-rotate(15deg) saturate(1.2)`;
-                            break;
-                        case 'darkspot':
+                        case 'advanced-macular':
                             blurOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
                             blurOverlay.style.mixBlendMode = 'normal';
                             blurOverlay.style.boxShadow = 'none';

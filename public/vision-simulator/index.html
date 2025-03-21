@@ -109,6 +109,8 @@
             <h2>Types of Vision Loss</h2>
             <p><strong>Macular Degeneration:</strong> Affects central vision. People with macular degeneration may see a blurred or dark spot in the center of their vision, while their peripheral vision remains intact.</p>
             
+            <p><strong>Advanced Macular Degeneration:</strong> A more severe form of macular degeneration where the central vision is significantly darkened or blocked, creating a more pronounced blind spot in the center of vision.</p>
+            
             <p><strong>Retinitis Pigmentosa (RP):</strong> The opposite of macular degeneration - it affects peripheral vision first. People with RP experience "tunnel vision" where they can only see a small area in the center while peripheral vision is lost.</p>
             
             <h2>How to Use This Simulator</h2>
@@ -127,10 +129,8 @@
     <div class="controls">
         <select id="type-selector">
             <option value="macular">Macular Degeneration</option>
+            <option value="advanced-macular">Advanced Macular Degeneration</option>
             <option value="rp">Retinitis Pigmentosa</option>
-            <option value="blur">Simple Blur</option>
-            <option value="distortion">Distortion</option>
-            <option value="darkspot">Dark Spot</option>
         </select>
         <div class="slider-container">
             <label for="size-slider">Size:</label>
@@ -226,19 +226,7 @@
                             blurOverlay.style.boxShadow = 'none';
                             blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.2)`;
                             break;
-                        case 'blur':
-                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-                            blurOverlay.style.mixBlendMode = 'normal';
-                            blurOverlay.style.boxShadow = 'none';
-                            blurOverlay.style.filter = `blur(${blurIntensity}px) saturate(0.7)`;
-                            break;
-                        case 'distortion':
-                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
-                            blurOverlay.style.mixBlendMode = 'overlay';
-                            blurOverlay.style.boxShadow = 'none';
-                            blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.5) brightness(1.2) hue-rotate(15deg) saturate(1.2)`;
-                            break;
-                        case 'darkspot':
+                        case 'advanced-macular':
                             blurOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
                             blurOverlay.style.mixBlendMode = 'normal';
                             blurOverlay.style.boxShadow = 'none';
