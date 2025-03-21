@@ -1,4 +1,5 @@
 ---
+layout: project.njk
 title: Sample Project
 subtitle: A demonstration of the project structure
 date: 2023-01-15

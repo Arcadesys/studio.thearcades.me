@@ -1,54 +1,55 @@
 ---
+layout: project.njk
 title: BlindTab
-subtitle: A productivity-focused new tab experience
-date: 2024-03-21
+subtitle: A proof-of-concept leadsheet viewer designed for users with low vision.
+date: 2023-03-21
 tags:
   - project
   - web
-  - react
-  - next.js
-  - neon
+  - accessibility
+  - low vision
+  - blind
+  - blindtab
 technologies:
-  - React
-  - Next.js
+  - HTML
+  - CSS
+  - next.js
+  - postgres
+  - Vercel
   - Neon
-  - Tailwind CSS
-  - TypeScript
+  - Tailwind
 liveUrl: https://blindtab.thearcades.me
-repoUrl: https://github.com/thearcades/blindtab
-icon: /img/projects/blindtab-icon.svg
+repoUrl: https://github.com/arcades/blindtab
+icon: /img/blog/blindtabUI.jpg
 images:
-  - /img/projects/blindtab-screenshot1.svg
+  - /img/projects/portfolio-dark.jpg
+  - /img/projects/portfolio-light.jpg
 ---
 
-BlindTab is a productivity-focused new tab replacement that helps you stay on task without distractions. It provides a clean, minimalist interface that keeps you focused on what matters.
+You ever wake up on a Friday morning and say, "Screw this, I'm done squinting at Ultimate Guitar"? That was me. I'd spent the better part of a year trying every tab reader, sheet music tool, and half-baked app out there. Nothing worked well with zoom, screen readers, or even just... my eyes. I'm low vision. I make it work. But none of these tools were built for someone like me.
 
-## How It Was Made
+So I said screw it. I'd make my own. I opened Cursor to hack together a prototype in a single weekend.
 
-I built BlindTab using Next.js and React for the frontend, with Neon for the backend data storage. The initial boilerplate was scaffolded with assistance from Cursor and Claude 3.7, which helped accelerate the development process.
+Originally, I thought this would be a static site—just HTML and CSS. A weekend's worth of work at least. But I wanted to save songs. I wanted to have them follow me between devices. I wanted to write tabs for friends. So I pulled in React.
 
-### Key Features
+At first, I could _swear_ this was magic. Within 10 minutes I had a working prototype of the application up and running on my network. I started thinking about my future as a 10x deevloper as I refined the UX, made it work for me.
 
-- Distraction-free new tab experience
-- Customizable productivity tools
-- Dark/light mode support
-- Quick access to essential information
-- Minimalist design philosophy
+The next day was chaos. I didn't know React. I didn't even really want to. But I knew what I needed. I got stuck a lot. Then I got unstuck. And stuck again.
 
-### Development Process
+After four false starts, I finally remembered the oldest rule in the book: start with the data.
 
-The development process followed these steps:
+Cue me deleting 20 hours of work in a single commit. Message: "LMAO."
 
-1. **Concept**: I started with the idea of creating a distraction-free new tab experience that would help users stay focused.
-2. **Prototyping**: Using Next.js and React, I built a quick prototype to test the core functionality.
-3. **Database Design**: I implemented Neon for efficient and reliable data storage.
-4. **UI Development**: The interface was designed with Tailwind CSS to create a clean, responsive experience.
-5. **Testing & Refinement**: I iteratively tested and improved the application based on usage patterns.
+Once I started again, the rest started to flow. Neon Serverless let me stand up a Postgres instance with zero effort. Vercel handled hosting like a champ. I used voice mode with Claude to work through blockers and draft user stories. I didn't have to spend time arguing with my own syntax.
 
-### Challenges and Solutions
+By Day Three I had full CRUD for a songbook. By Day Five I had a working tab reader with auto-centering text. It was ugly as sin, but it worked. And it worked for me. That mattered.
 
-The main challenge was balancing simplicity with functionality. I wanted to create something minimal but still useful enough to replace a standard new tab. The solution was to implement a modular design that allows users to customize which productivity tools they want to display.
+I used it every day for a week on my iPad. Tested it. Broke it. Fixed it. Added keyboard shortcuts. Centered the lyrics better. Wired up a bluetooth page turner. Added quick song loading and automatic scroll anchoring. Each fix made it more fun to use.
 
-## Conclusion
+The real "oh damn" moment was when I loaded up "Fake Plastic Trees" and played through the whole thing without ever squinting or losing my place, first time, no issues.
 
-BlindTab demonstrates how thoughtful design constraints can create more useful tools. By intentionally limiting visual noise and emphasizing focus, the app helps users stay productive in an increasingly distracting digital environment. 
+I'm not done. Right now, I'm still solo-tenant. I hardcoded database auth just to get things rolling. The next step is multi-user support—auth, private libraries, shared tabs. After that? Markdown import. Live chords. Maybe even a screen reader that cues blind musicians.
+
+But the core idea remains: it's gotta work for me. And if it works for me, maybe it works for someone else, too.
+
+Stay tuned.

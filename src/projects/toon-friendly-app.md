@@ -1,4 +1,5 @@
 ---
+layout: project.njk
 title: Toon-Friendly Interface
 subtitle: A cross-reality UI designed for both toons and humans in Clampett City
 date: 2023-05-20

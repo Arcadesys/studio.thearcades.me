@@ -1,4 +1,5 @@
 ---
+layout: project.njk
 title: Portfolio Website
 subtitle: A modern, responsive portfolio built with Eleventy and TailwindCSS
 date: 2023-03-15
