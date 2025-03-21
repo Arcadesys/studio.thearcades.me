@@ -40,9 +40,9 @@ After four false starts, I finally remembered the oldest rule in the book: start
 
 Cue me deleting 20 hours of work in a single commit. Message: "LMAO."
 
-Once I started again, the rest started to flow. Neon Serverless let me stand up a Postgres instance with zero effort. Vercel handled hosting like a champ. I used voice mode with Claude to work through blockers and draft user stories. I didn't have to spend time arguing with my own syntax.
+Once I started again, the rest started to flow. Neon Serverless let me stand up a Postgres instance with zero effort. Vercel handled hosting like a champ. I used voice mode with ChatGPT to work through blockers and draft user stories. I didn't have to spend time arguing with my own syntax.
 
-By Day Three I had full CRUD for a songbook. By Day Five I had a working tab reader with auto-centering text. It was ugly as sin, but it worked. And it worked for me. That mattered.
+By Day Three I had full CRUD for a songbook. By that evening I had a working tab reader with auto-centering text. It was ugly as sin, but it worked. And it worked for me. That mattered.
 
 I used it every day for a week on my iPad. Tested it. Broke it. Fixed it. Added keyboard shortcuts. Centered the lyrics better. Wired up a bluetooth page turner. Added quick song loading and automatic scroll anchoring. Each fix made it more fun to use.
 
@@ -51,5 +51,10 @@ The real "oh damn" moment was when I loaded up "Fake Plastic Trees" and played t
 I'm not done. Right now, I'm still solo-tenant. I hardcoded database auth just to get things rolling. The next step is multi-user support—auth, private libraries, shared tabs. After that? Markdown import. Live chords. Maybe even a screen reader that cues blind musicians.
 
 But the core idea remains: it's gotta work for me. And if it works for me, maybe it works for someone else, too.
+
+Some cool things to look out for:
+
+- check out the "display" button on a leadsheet page - that was 100% Claude's idea and honestly, I love it.
+- If you have a bluetooth page turner, you can connect it for hands-free page turns.
 
 Stay tuned.
