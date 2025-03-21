@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vision Loss Simulator</title>
+    <title>Vision Loss Simulator - Dark Mode</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             overflow: hidden;
             font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
         }
         
         #container {
             position: relative;
-            width: 100vw;
+            width: 100%;
             height: 100vh;
             overflow: hidden;
         }
         
         #content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: relative;
             padding: 20px;
             box-sizing: border-box;
-            overflow: auto;
+            line-height: 1.6;
         }
         
         #background-image {
@@ -47,7 +45,7 @@
             z-index: 100;
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(128, 128, 128, 0.8);
             mix-blend-mode: difference;
             filter: blur(0);
             transition: all 0.1s ease;
@@ -77,95 +75,80 @@
         }
         
         h1, h2 {
-            color: #333;
+            color: #ffffff;
         }
         
-        p {
-            line-height: 1.6;
-            margin-bottom: 1em;
+        a {
+            color: #bb86fc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
         }
         
         .controls {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 5px;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(30, 30, 30, 0.8);
+            padding: 8px;
+            border-radius: 4px;
             color: white;
+            font-size: 12px;
             z-index: 200;
+            border: 1px solid #333;
         }
         
         .slider-container {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
         }
         
         label {
             display: inline-block;
-            width: 120px;
+            width: 90px;
+        }
+        
+        input[type="range"] {
+            width: 80px;
+        }
+        
+        .value {
+            width: 40px;
+            text-align: right;
         }
         
         #type-selector {
-            margin-bottom: 10px;
-            width: 100%;
-        }
-        
-        .image-url-container {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .image-url-container label {
             margin-bottom: 5px;
             width: 100%;
-        }
-        
-        .image-url-container input {
-            margin-bottom: 5px;
-            width: 100%;
-        }
-        
-        .image-url-container button {
-            padding: 5px;
-            background: #444;
-            border: none;
-            border-radius: 3px;
+            background: #333;
             color: white;
-            cursor: pointer;
-        }
-        
-        .image-url-container button:hover {
-            background: #555;
+            border: 1px solid #555;
         }
     </style>
 </head>
 <body>
     <div id="container">
         <div id="content">
-            <h1>Vision Loss Simulator</h1>
-            <p>This simulator demonstrates how different vision conditions might affect vision. The simulator follows your mouse cursor, helping you experience various types of vision impairment.</p>
+            <h1>Vision Loss Simulator - Dark Mode</h1>
+            <p>This is a dark mode version of the simulator with white text on a dark background. Move your cursor around to experience how vision impairments affect this color scheme.</p>
             
-            <h2>Types of Vision Loss</h2>
-            <p><strong>Macular Degeneration:</strong> Affects central vision. People with macular degeneration may see a blurred or dark spot in the center of their vision, while their peripheral vision remains intact.</p>
+            <h2>About Dark Mode and Vision Impairments</h2>
+            <p>Many people with vision impairments find dark mode (white or light text on dark backgrounds) more comfortable to read. This test page lets you see how the different simulation effects interact with dark mode content.</p>
             
-            <p><strong>Advanced Macular Degeneration:</strong> A more severe form of macular degeneration where the central vision is significantly darkened or blocked, creating a more pronounced blind spot in the center of vision.</p>
+            <p>The simulators have been adjusted to work well with both light and dark backgrounds. Different color schemes can significantly impact how vision impairments affect readability.</p>
             
-            <p><strong>Retinitis Pigmentosa (RP):</strong> The opposite of macular degeneration - it affects peripheral vision first. People with RP experience "tunnel vision" where they can only see a small area in the center while peripheral vision is lost.</p>
+            <h2>Sample Content for Testing</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             
-            <h2>How to Use This Simulator</h2>
-            <p>Move your mouse around the page to experience how different vision conditions affect reading and perception. Select different simulation types from the dropdown menu and adjust the size and intensity using the controls.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             
-            <p>You can also provide an image URL to see how vision impairments affect viewing images. Use the "Load Image" form in the controls, or append <code>?img=URL</code> to the page URL.</p>
+            <p>Links also appear differently in dark mode: <a href="#">this is a sample link</a>. People with color vision deficiencies may have difficulty distinguishing link colors from regular text in some cases.</p>
             
-            <p><a href="dark-test.html" style="color: #0066cc; font-weight: bold;">Try the dark mode version</a> to see how these vision conditions appear with white text on a dark background.</p>
-            
-            <h2>More Information</h2>
-            <p>This is a simplified simulation and does not perfectly represent everyone's experience with vision loss. Each person's vision impairment is unique.</p>
-            
-            <p>For more information about eye conditions and vision loss, please consult with vision specialists or organizations dedicated to vision impairment support.</p>
+            <p><a href="index.html">Return to light mode version</a></p>
         </div>
-        <img id="background-image" alt="Custom background image">
         <div id="blur-overlay"></div>
         <div id="rp-overlay"></div>
         <div id="rp-vision"></div>
@@ -179,18 +162,13 @@
         </select>
         <div class="slider-container">
             <label for="size-slider">Size:</label>
-            <input type="range" id="size-slider" min="20" max="200" value="80">
-            <span id="size-value">80px</span>
+            <input type="range" id="size-slider" min="20" max="150" value="80">
+            <span id="size-value" class="value">80px</span>
         </div>
         <div class="slider-container">
             <label for="intensity-slider">Intensity:</label>
             <input type="range" id="intensity-slider" min="1" max="20" value="8">
-            <span id="intensity-value">8px</span>
-        </div>
-        <div class="image-url-container">
-            <label for="image-url">Image URL:</label>
-            <input type="text" id="image-url" placeholder="https://example.com/image.jpg">
-            <button id="load-image">Load Image</button>
+            <span id="intensity-value" class="value">8px</span>
         </div>
     </div>
 
@@ -204,50 +182,10 @@
             const sizeValue = document.getElementById('size-value');
             const intensityValue = document.getElementById('intensity-value');
             const typeSelector = document.getElementById('type-selector');
-            const backgroundImage = document.getElementById('background-image');
-            const content = document.getElementById('content');
-            const imageUrlInput = document.getElementById('image-url');
-            const loadImageButton = document.getElementById('load-image');
             
             let blurSize = parseInt(sizeSlider.value);
             let blurIntensity = parseInt(intensitySlider.value);
             let simulationType = typeSelector.value;
-            
-            // Check for image URL in query parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const imageUrl = urlParams.get('img');
-            
-            if (imageUrl) {
-                loadImage(imageUrl);
-                imageUrlInput.value = imageUrl;
-            }
-            
-            // Load image from URL input
-            loadImageButton.addEventListener('click', function() {
-                const url = imageUrlInput.value.trim();
-                if (url) {
-                    loadImage(url);
-                    
-                    // Update URL without refreshing page
-                    const newUrl = new URL(window.location);
-                    newUrl.searchParams.set('img', url);
-                    window.history.pushState({}, '', newUrl);
-                }
-            });
-            
-            function loadImage(url) {
-                backgroundImage.src = url;
-                backgroundImage.style.display = 'block';
-                content.style.display = 'none';
-                
-                // Error handling for image
-                backgroundImage.onerror = function() {
-                    console.error('Error loading image: ' + url);
-                    backgroundImage.style.display = 'none';
-                    content.style.display = 'block';
-                    alert('Error loading image. Please check the URL and try again.');
-                };
-            }
             
             // Initialize overlay
             updateBlurOverlay();
@@ -280,18 +218,6 @@
                 rpVision.style.top = e.clientY + 'px';
             });
             
-            // Hide blur when mouse leaves the window
-            document.addEventListener('mouseout', function() {
-                blurOverlay.style.opacity = '0';
-                rpVision.style.opacity = '0';
-            });
-            
-            // Show blur when mouse enters the window
-            document.addEventListener('mouseover', function() {
-                blurOverlay.style.opacity = '1';
-                rpVision.style.opacity = '1';
-            });
-            
             function updateBlurOverlay() {
                 // Set size for both overlays
                 blurOverlay.style.width = blurSize * 2 + 'px';
@@ -308,7 +234,7 @@
                     blurOverlay.style.display = 'block';
                     rpOverlay.style.display = 'none';
                     rpVision.style.display = 'none';
-                
+                    
                     switch(simulationType) {
                         case 'macular':
                             blurOverlay.style.backgroundColor = 'rgba(128, 128, 128, 0.8)';

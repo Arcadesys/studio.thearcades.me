@@ -27,6 +27,17 @@
             line-height: 1.6;
         }
         
+        #background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 0;
+            display: none;
+        }
+        
         #blur-overlay {
             position: absolute;
             pointer-events: none;
@@ -111,6 +122,7 @@
             
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
+        <img id="background-image" alt="Custom background image">
         <div id="blur-overlay"></div>
         <div id="rp-overlay"></div>
         <div id="rp-vision"></div>
@@ -144,10 +156,29 @@
             const sizeValue = document.getElementById('size-value');
             const intensityValue = document.getElementById('intensity-value');
             const typeSelector = document.getElementById('type-selector');
+            const backgroundImage = document.getElementById('background-image');
+            const content = document.getElementById('content');
             
             let blurSize = parseInt(sizeSlider.value);
             let blurIntensity = parseInt(intensitySlider.value);
             let simulationType = typeSelector.value;
+            
+            // Check for image URL in query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const imageUrl = urlParams.get('img');
+            
+            if (imageUrl) {
+                backgroundImage.src = imageUrl;
+                backgroundImage.style.display = 'block';
+                content.style.display = 'none';
+                
+                // Error handling for image
+                backgroundImage.onerror = function() {
+                    console.error('Error loading image: ' + imageUrl);
+                    backgroundImage.style.display = 'none';
+                    content.style.display = 'block';
+                };
+            }
             
             // Initialize overlay
             updateBlurOverlay();
@@ -199,16 +230,16 @@
                     
                     switch(simulationType) {
                         case 'macular':
-                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                            blurOverlay.style.backgroundColor = 'rgba(128, 128, 128, 0.8)';
                             blurOverlay.style.mixBlendMode = 'difference';
                             blurOverlay.style.boxShadow = 'none';
-                            blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.2)`;
+                            blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.5) saturate(0.7)`;
                             break;
                         case 'advanced-macular':
-                            blurOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-                            blurOverlay.style.mixBlendMode = 'normal';
+                            blurOverlay.style.backgroundColor = 'rgba(50, 50, 50, 0.8)';
+                            blurOverlay.style.mixBlendMode = 'multiply';
                             blurOverlay.style.boxShadow = 'none';
-                            blurOverlay.style.filter = `blur(${blurIntensity}px) brightness(0.7)`;
+                            blurOverlay.style.filter = `blur(${blurIntensity}px) brightness(0.7) contrast(1.2)`;
                             break;
                     }
                 }

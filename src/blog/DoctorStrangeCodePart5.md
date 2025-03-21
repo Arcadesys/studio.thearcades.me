@@ -21,7 +21,7 @@ I've lost a lot of my vision in the past two years. This isn't a surprise—I've
 For a long time, coding was a source of joy for me. But as my vision declined, my ability to engage in text-heavy work like coding and writing became significantly harder. Programming involves a lot of precision, and while small errors like a missing semicolon might be a minor inconvenience for a sighted developer, for me, it became a showstopper. I couldn't skim through code as easily, I couldn't quickly spot where things went wrong, and I found myself increasingly frustrated and exhausted trying to maintain my workflow.
 
 <iframe 
-  src="/vision-simulator/embed.html" 
+  src="/vision-simulator/embed.html?img=/img/cursorsample.jpg" 
   width="100%" 
   height="400" 
   frameborder="0" 
