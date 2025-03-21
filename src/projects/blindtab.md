@@ -21,9 +21,6 @@ technologies:
 liveUrl: https://blindtab.thearcades.me
 repoUrl: https://github.com/arcades/blindtab
 icon: /img/blog/blindtabUI.jpg
-images:
-  - /img/projects/portfolio-dark.jpg
-  - /img/projects/portfolio-light.jpg
 ---
 
 You ever wake up on a Friday morning and say, "Screw this, I'm done squinting at Ultimate Guitar"? That was me. I'd spent the better part of a year trying every tab reader, sheet music tool, and half-baked app out there. Nothing worked well with zoom, screen readers, or even just... my eyes. I'm low vision. I make it work. But none of these tools were built for someone like me.

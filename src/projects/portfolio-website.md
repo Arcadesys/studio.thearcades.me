@@ -16,8 +16,8 @@ technologies:
   - TailwindCSS
   - Nunjucks
 liveUrl: https://thearcades.me
-repoUrl: https://github.com/arcades/studio.thearcades.me
-icon: /img/avatar/demon-character.svg
+repoUrl: https://github.com/arcades/arcadeprofile
+icon: /img/arcadesmescreenshot.jpg
 images:
   - /img/projects/portfolio-dark.jpg
   - /img/projects/portfolio-light.jpg
