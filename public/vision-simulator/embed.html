@@ -38,6 +38,29 @@
             transition: all 0.1s ease;
         }
         
+        #rp-overlay {
+            position: fixed;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 99;
+            display: none;
+        }
+        
+        #rp-vision {
+            position: absolute;
+            pointer-events: none;
+            z-index: 101;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.95);
+            display: none;
+        }
+        
         .controls {
             position: fixed;
             bottom: 10px;
@@ -79,7 +102,7 @@
 <body>
     <div id="container">
         <div id="content">
-            <p>Move your cursor around to experience different types of vision impairment. This simulator demonstrates how central vision loss affects the ability to see details directly in front of you.</p>
+            <p>Move your cursor around to experience different types of vision impairment. This simulator demonstrates how various vision conditions affect your ability to see.</p>
             
             <p>Select different simulation types from the dropdown menu and adjust the size and intensity using the sliders. This can help understand the challenges faced by people with various visual impairments.</p>
             
@@ -88,11 +111,14 @@
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
         <div id="blur-overlay"></div>
+        <div id="rp-overlay"></div>
+        <div id="rp-vision"></div>
     </div>
     
     <div class="controls">
         <select id="type-selector">
             <option value="macular">Macular Degeneration</option>
+            <option value="rp">Retinitis Pigmentosa</option>
             <option value="blur">Simple Blur</option>
             <option value="distortion">Distortion</option>
             <option value="darkspot">Dark Spot</option>
@@ -112,6 +138,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const blurOverlay = document.getElementById('blur-overlay');
+            const rpOverlay = document.getElementById('rp-overlay');
+            const rpVision = document.getElementById('rp-vision');
             const sizeSlider = document.getElementById('size-slider');
             const intensitySlider = document.getElementById('intensity-slider');
             const sizeValue = document.getElementById('size-value');
@@ -149,35 +177,49 @@
             document.addEventListener('mousemove', function(e) {
                 blurOverlay.style.left = e.clientX + 'px';
                 blurOverlay.style.top = e.clientY + 'px';
+                rpVision.style.left = e.clientX + 'px';
+                rpVision.style.top = e.clientY + 'px';
             });
             
             function updateBlurOverlay() {
-                // Set size
+                // Set size for both overlays
                 blurOverlay.style.width = blurSize * 2 + 'px';
                 blurOverlay.style.height = blurSize * 2 + 'px';
+                rpVision.style.width = blurSize * 2 + 'px';
+                rpVision.style.height = blurSize * 2 + 'px';
                 
                 // Apply effects based on simulation type
-                switch(simulationType) {
-                    case 'macular':
-                        blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-                        blurOverlay.style.boxShadow = 'none';
-                        blurOverlay.style.filter = `blur(${blurIntensity}px)`;
-                        break;
-                    case 'blur':
-                        blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-                        blurOverlay.style.boxShadow = 'none';
-                        blurOverlay.style.filter = `blur(${blurIntensity}px)`;
-                        break;
-                    case 'distortion':
-                        blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
-                        blurOverlay.style.boxShadow = 'none';
-                        blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.4) brightness(1.1) hue-rotate(10deg)`;
-                        break;
-                    case 'darkspot':
-                        blurOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-                        blurOverlay.style.boxShadow = 'none';
-                        blurOverlay.style.filter = `blur(${blurIntensity}px)`;
-                        break;
+                if (simulationType === 'rp') {
+                    blurOverlay.style.display = 'none';
+                    rpOverlay.style.display = 'block';
+                    rpVision.style.display = 'block';
+                } else {
+                    blurOverlay.style.display = 'block';
+                    rpOverlay.style.display = 'none';
+                    rpVision.style.display = 'none';
+                    
+                    switch(simulationType) {
+                        case 'macular':
+                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+                            blurOverlay.style.boxShadow = 'none';
+                            blurOverlay.style.filter = `blur(${blurIntensity}px)`;
+                            break;
+                        case 'blur':
+                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                            blurOverlay.style.boxShadow = 'none';
+                            blurOverlay.style.filter = `blur(${blurIntensity}px)`;
+                            break;
+                        case 'distortion':
+                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+                            blurOverlay.style.boxShadow = 'none';
+                            blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.4) brightness(1.1) hue-rotate(10deg)`;
+                            break;
+                        case 'darkspot':
+                            blurOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                            blurOverlay.style.boxShadow = 'none';
+                            blurOverlay.style.filter = `blur(${blurIntensity}px)`;
+                            break;
+                    }
                 }
             }
         });
