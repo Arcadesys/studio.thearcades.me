@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Vision Loss Simulator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        #container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        #content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+        
+        #blur-overlay {
+            position: absolute;
+            pointer-events: none;
+            z-index: 100;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.8);
+            filter: blur(1px);
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 1em;
+        }
+        
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 200;
+        }
+        
+        .slider-container {
+            margin-bottom: 10px;
+        }
+        
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <h1>Central Vision Loss Simulator</h1>
+            <p>This simulator demonstrates how central vision loss (like macular degeneration) might affect vision. The blurred area follows your mouse cursor, simulating the loss of central vision.</p>
+            
+            <h2>What is Central Vision Loss?</h2>
+            <p>Central vision loss occurs when the macula—the central part of the retina responsible for detailed vision—is damaged. People with macular degeneration or similar conditions may see a blurred or dark spot in the center of their vision, while their peripheral vision remains intact.</p>
+            
+            <h2>How to Use This Simulator</h2>
+            <p>Move your mouse around the page to experience how central vision loss affects reading and perception. The area around your cursor will appear blurred, representing the scotoma (blind spot) that many people with macular degeneration experience.</p>
+            
+            <p>You can adjust the size and intensity of the blurred area using the controls in the bottom right corner.</p>
+            
+            <h2>More Information</h2>
+            <p>This is a simplified simulation and does not perfectly represent everyone's experience with central vision loss. Each person's vision impairment is unique.</p>
+            
+            <p>For more information about macular degeneration and central vision loss, please consult with vision specialists or organizations dedicated to vision impairment support.</p>
+        </div>
+        <div id="blur-overlay"></div>
+    </div>
+    
+    <div class="controls">
+        <div class="slider-container">
+            <label for="size-slider">Blur Size:</label>
+            <input type="range" id="size-slider" min="20" max="200" value="80">
+            <span id="size-value">80px</span>
+        </div>
+        <div class="slider-container">
+            <label for="intensity-slider">Blur Intensity:</label>
+            <input type="range" id="intensity-slider" min="1" max="20" value="5">
+            <span id="intensity-value">5px</span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const blurOverlay = document.getElementById('blur-overlay');
+            const sizeSlider = document.getElementById('size-slider');
+            const intensitySlider = document.getElementById('intensity-slider');
+            const sizeValue = document.getElementById('size-value');
+            const intensityValue = document.getElementById('intensity-value');
+            
+            let blurSize = parseInt(sizeSlider.value);
+            let blurIntensity = parseInt(intensitySlider.value);
+            
+            // Initialize overlay
+            blurOverlay.style.width = blurSize * 2 + 'px';
+            blurOverlay.style.height = blurSize * 2 + 'px';
+            blurOverlay.style.filter = `blur(${blurIntensity}px)`;
+            blurOverlay.style.opacity = '1';
+            
+            // Update size value display
+            sizeSlider.addEventListener('input', function() {
+                blurSize = parseInt(this.value);
+                sizeValue.textContent = blurSize + 'px';
+                blurOverlay.style.width = blurSize * 2 + 'px';
+                blurOverlay.style.height = blurSize * 2 + 'px';
+            });
+            
+            // Update intensity value display
+            intensitySlider.addEventListener('input', function() {
+                blurIntensity = parseInt(this.value);
+                intensityValue.textContent = blurIntensity + 'px';
+                blurOverlay.style.filter = `blur(${blurIntensity}px)`;
+            });
+            
+            // Move blur overlay with mouse
+            document.addEventListener('mousemove', function(e) {
+                blurOverlay.style.left = e.clientX + 'px';
+                blurOverlay.style.top = e.clientY + 'px';
+            });
+            
+            // Hide blur when mouse leaves the window
+            document.addEventListener('mouseout', function() {
+                blurOverlay.style.opacity = '0';
+            });
+            
+            // Show blur when mouse enters the window
+            document.addEventListener('mouseover', function() {
+                blurOverlay.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html> 
