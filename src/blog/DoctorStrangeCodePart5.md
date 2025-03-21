@@ -30,7 +30,7 @@ For a long time, coding was a source of joy for me. But as my vision declined, m
   allowfullscreen>
 </iframe>
 
-<small>*Try out this simulator to experience a simplified version of central vision loss. The blur follows your cursor to simulate how macular degeneration affects the central field of vision while peripheral vision remains intact. You can also <a href="/vision-simulator/dark-test.html?img=/img/cursorsample.jpg" target="_blank">try the dark mode version</a>.*</small>
+<small>*Try out this simulator to experience a simplified version of central vision loss. The blur follows your cursor to simulate how macular degeneration affects the central field of vision while peripheral vision remains intact.*</small>
 
 The reality of being a low-vision coder is that everything takes longer. Consider a simple everyday task like making a pot of tea:
 
