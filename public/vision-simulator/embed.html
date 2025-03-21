@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Loss Simulator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+        
+        #container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        #content {
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        
+        #blur-overlay {
+            position: absolute;
+            pointer-events: none;
+            z-index: 100;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            mix-blend-mode: difference;
+            filter: blur(0);
+            transition: all 0.1s ease;
+        }
+        
+        #rp-overlay {
+            position: fixed;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 99;
+            display: none;
+        }
+        
+        #rp-vision {
+            position: absolute;
+            pointer-events: none;
+            z-index: 101;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.95);
+            display: none;
+        }
+        
+        .controls {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px;
+            border-radius: 4px;
+            color: white;
+            font-size: 12px;
+            z-index: 200;
+        }
+        
+        .slider-container {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        label {
+            display: inline-block;
+            width: 90px;
+        }
+        
+        input[type="range"] {
+            width: 80px;
+        }
+        
+        .value {
+            width: 40px;
+            text-align: right;
+        }
+        
+        #type-selector {
+            margin-bottom: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <p>Move your cursor around to experience different types of vision impairment. This simulator demonstrates how various vision conditions affect your ability to see.</p>
+            
+            <p>Select different simulation types from the dropdown menu and adjust the size and intensity using the sliders. This can help understand the challenges faced by people with various visual impairments.</p>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div id="blur-overlay"></div>
+        <div id="rp-overlay"></div>
+        <div id="rp-vision"></div>
+    </div>
+    
+    <div class="controls">
+        <select id="type-selector">
+            <option value="macular">Macular Degeneration</option>
+            <option value="advanced-macular">Advanced Macular Degeneration</option>
+            <option value="rp">Retinitis Pigmentosa</option>
+        </select>
+        <div class="slider-container">
+            <label for="size-slider">Size:</label>
+            <input type="range" id="size-slider" min="20" max="150" value="80">
+            <span id="size-value" class="value">80px</span>
+        </div>
+        <div class="slider-container">
+            <label for="intensity-slider">Intensity:</label>
+            <input type="range" id="intensity-slider" min="1" max="20" value="8">
+            <span id="intensity-value" class="value">8px</span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const blurOverlay = document.getElementById('blur-overlay');
+            const rpOverlay = document.getElementById('rp-overlay');
+            const rpVision = document.getElementById('rp-vision');
+            const sizeSlider = document.getElementById('size-slider');
+            const intensitySlider = document.getElementById('intensity-slider');
+            const sizeValue = document.getElementById('size-value');
+            const intensityValue = document.getElementById('intensity-value');
+            const typeSelector = document.getElementById('type-selector');
+            
+            let blurSize = parseInt(sizeSlider.value);
+            let blurIntensity = parseInt(intensitySlider.value);
+            let simulationType = typeSelector.value;
+            
+            // Initialize overlay
+            updateBlurOverlay();
+            
+            // Update size value display
+            sizeSlider.addEventListener('input', function() {
+                blurSize = parseInt(this.value);
+                sizeValue.textContent = blurSize + 'px';
+                updateBlurOverlay();
+            });
+            
+            // Update intensity value display
+            intensitySlider.addEventListener('input', function() {
+                blurIntensity = parseInt(this.value);
+                intensityValue.textContent = blurIntensity + 'px';
+                updateBlurOverlay();
+            });
+            
+            // Change simulation type
+            typeSelector.addEventListener('change', function() {
+                simulationType = this.value;
+                updateBlurOverlay();
+            });
+            
+            // Move blur overlay with mouse
+            document.addEventListener('mousemove', function(e) {
+                blurOverlay.style.left = e.clientX + 'px';
+                blurOverlay.style.top = e.clientY + 'px';
+                rpVision.style.left = e.clientX + 'px';
+                rpVision.style.top = e.clientY + 'px';
+            });
+            
+            function updateBlurOverlay() {
+                // Set size for both overlays
+                blurOverlay.style.width = blurSize * 2 + 'px';
+                blurOverlay.style.height = blurSize * 2 + 'px';
+                rpVision.style.width = blurSize * 2 + 'px';
+                rpVision.style.height = blurSize * 2 + 'px';
+                
+                // Apply effects based on simulation type
+                if (simulationType === 'rp') {
+                    blurOverlay.style.display = 'none';
+                    rpOverlay.style.display = 'block';
+                    rpVision.style.display = 'block';
+                } else {
+                    blurOverlay.style.display = 'block';
+                    rpOverlay.style.display = 'none';
+                    rpVision.style.display = 'none';
+                    
+                    switch(simulationType) {
+                        case 'macular':
+                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                            blurOverlay.style.mixBlendMode = 'difference';
+                            blurOverlay.style.boxShadow = 'none';
+                            blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.2)`;
+                            break;
+                        case 'advanced-macular':
+                            blurOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                            blurOverlay.style.mixBlendMode = 'normal';
+                            blurOverlay.style.boxShadow = 'none';
+                            blurOverlay.style.filter = `blur(${blurIntensity}px) brightness(0.7)`;
+                            break;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

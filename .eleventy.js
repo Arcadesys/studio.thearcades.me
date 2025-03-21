@@ -23,6 +23,9 @@ module.exports = function(eleventyConfig) {
   
   // Copy the `js` directory to the output
   eleventyConfig.addPassthroughCopy("src/js");
+  
+  // Copy the entire `public` directory to the root of the output
+  eleventyConfig.addPassthroughCopy({ "public": "/" });
 
   // Watch for changes to the CSS files
   eleventyConfig.addWatchTarget("src/css/");
