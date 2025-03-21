@@ -230,16 +230,16 @@
                     
                     switch(simulationType) {
                         case 'macular':
-                            blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                            blurOverlay.style.backgroundColor = 'rgba(128, 128, 128, 0.8)';
                             blurOverlay.style.mixBlendMode = 'difference';
                             blurOverlay.style.boxShadow = 'none';
-                            blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.2)`;
+                            blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.5) saturate(0.7)`;
                             break;
                         case 'advanced-macular':
-                            blurOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-                            blurOverlay.style.mixBlendMode = 'normal';
+                            blurOverlay.style.backgroundColor = 'rgba(50, 50, 50, 0.8)';
+                            blurOverlay.style.mixBlendMode = 'multiply';
                             blurOverlay.style.boxShadow = 'none';
-                            blurOverlay.style.filter = `blur(${blurIntensity}px) brightness(0.7)`;
+                            blurOverlay.style.filter = `blur(${blurIntensity}px) brightness(0.7) contrast(1.2)`;
                             break;
                     }
                 }
