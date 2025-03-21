@@ -34,14 +34,11 @@
             position: absolute;
             pointer-events: none;
             z-index: 100;
-            width: 0;
-            height: 0;
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.2s ease;
-            box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.8);
-            filter: blur(1px);
+            background-color: rgba(255, 255, 255, 0.7);
+            filter: blur(0);
+            transition: all 0.1s ease;
         }
         
         h1, h2 {
@@ -72,6 +69,11 @@
             display: inline-block;
             width: 120px;
         }
+        
+        #type-selector {
+            margin-bottom: 10px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -97,6 +99,12 @@
     </div>
     
     <div class="controls">
+        <select id="type-selector">
+            <option value="macular">Macular Degeneration</option>
+            <option value="blur">Simple Blur</option>
+            <option value="distortion">Distortion</option>
+            <option value="darkspot">Dark Spot</option>
+        </select>
         <div class="slider-container">
             <label for="size-slider">Blur Size:</label>
             <input type="range" id="size-slider" min="20" max="200" value="80">
@@ -116,29 +124,33 @@
             const intensitySlider = document.getElementById('intensity-slider');
             const sizeValue = document.getElementById('size-value');
             const intensityValue = document.getElementById('intensity-value');
+            const typeSelector = document.getElementById('type-selector');
             
             let blurSize = parseInt(sizeSlider.value);
             let blurIntensity = parseInt(intensitySlider.value);
+            let simulationType = typeSelector.value;
             
             // Initialize overlay
-            blurOverlay.style.width = blurSize * 2 + 'px';
-            blurOverlay.style.height = blurSize * 2 + 'px';
-            blurOverlay.style.filter = `blur(${blurIntensity}px)`;
-            blurOverlay.style.opacity = '1';
+            updateBlurOverlay();
             
             // Update size value display
             sizeSlider.addEventListener('input', function() {
                 blurSize = parseInt(this.value);
                 sizeValue.textContent = blurSize + 'px';
-                blurOverlay.style.width = blurSize * 2 + 'px';
-                blurOverlay.style.height = blurSize * 2 + 'px';
+                updateBlurOverlay();
             });
             
             // Update intensity value display
             intensitySlider.addEventListener('input', function() {
                 blurIntensity = parseInt(this.value);
                 intensityValue.textContent = blurIntensity + 'px';
-                blurOverlay.style.filter = `blur(${blurIntensity}px)`;
+                updateBlurOverlay();
+            });
+            
+            // Change simulation type
+            typeSelector.addEventListener('change', function() {
+                simulationType = this.value;
+                updateBlurOverlay();
             });
             
             // Move blur overlay with mouse
@@ -156,6 +168,36 @@
             document.addEventListener('mouseover', function() {
                 blurOverlay.style.opacity = '1';
             });
+            
+            function updateBlurOverlay() {
+                // Set size
+                blurOverlay.style.width = blurSize * 2 + 'px';
+                blurOverlay.style.height = blurSize * 2 + 'px';
+                
+                // Apply effects based on simulation type
+                switch(simulationType) {
+                    case 'macular':
+                        blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+                        blurOverlay.style.boxShadow = 'none';
+                        blurOverlay.style.filter = `blur(${blurIntensity}px)`;
+                        break;
+                    case 'blur':
+                        blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                        blurOverlay.style.boxShadow = 'none';
+                        blurOverlay.style.filter = `blur(${blurIntensity}px)`;
+                        break;
+                    case 'distortion':
+                        blurOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+                        blurOverlay.style.boxShadow = 'none';
+                        blurOverlay.style.filter = `blur(${blurIntensity}px) contrast(1.4) brightness(1.1) hue-rotate(10deg)`;
+                        break;
+                    case 'darkspot':
+                        blurOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                        blurOverlay.style.boxShadow = 'none';
+                        blurOverlay.style.filter = `blur(${blurIntensity}px)`;
+                        break;
+                }
+            }
         });
     </script>
 </body>
