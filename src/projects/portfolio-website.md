@@ -18,9 +18,6 @@ technologies:
 liveUrl: https://thearcades.me
 repoUrl: https://github.com/arcades/arcadeprofile
 icon: /img/arcadesmescreenshot.jpg
-images:
-  - /img/projects/portfolio-dark.jpg
-  - /img/projects/portfolio-light.jpg
 ---
 
 My portfolio website showcases my projects, blog posts, and skills in a clean, modern design. Built with Eleventy and TailwindCSS, it features both light and dark modes, responsive design, and fast loading times.
