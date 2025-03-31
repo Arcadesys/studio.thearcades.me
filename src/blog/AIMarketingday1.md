@@ -89,7 +89,7 @@ I fed Sora an image and a summary of the book setting: "Cartoons, but in real li
 }
 
 .carousel-controls button {
-  @apply bg-arcades-blue text-white px-4 py-2 rounded-lg hover:bg-arcades-purple transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-arcades-purple focus:ring-offset-2;
+  @apply bg-white dark:bg-gray-800 text-arcades-blue dark:text-blue-300 px-6 py-3 rounded-xl hover:bg-arcades-blue hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-arcades-purple focus:ring-offset-2 shadow-medium dark:shadow-dark-medium border-2 border-arcades-blue dark:border-blue-500 hover:scale-105 hover:-translate-y-1;
 }
 
 .carousel-track {
@@ -162,11 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-// Auto-advance with respect for reduced motion preferences
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  setInterval(nextImage, 5000);
-}
 </script>
 
 (She's my "Utah Teapot" now. Check these variations!)
