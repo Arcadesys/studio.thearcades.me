@@ -1,7 +1,7 @@
 ---
 layout: "post.njk"
 title: "Doctor StrangeCode part 5 - Claude, the Accessibility Guru"
-date: "2024-03-21"
+date: "2025-03-21"
 author: "Austen Tucker"
 description: "How AI Made Coding Accessible Again"
 image: "/img/cursorsample.jpg"

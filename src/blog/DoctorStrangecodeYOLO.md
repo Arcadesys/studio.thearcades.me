@@ -2,7 +2,7 @@
 layout: post.njk
 title: Doctor StrangeCode Part 2 - YOLO Mode
 description: No more FOMO, let's do this!! I unleashed Claude 3.7's awesome power on a blank codebase. What could go wrong?
-date: 2024-03-17
+date: 2026-03-17
 tags:
   - post
   - AI

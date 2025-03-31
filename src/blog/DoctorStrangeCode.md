@@ -2,7 +2,7 @@
 layout: post.njk
 title: Doctor StrangeCode
 description: Or How I Learned to Stop Coding and Embrace the Vibes
-date: 2023-03-13
+date: 2025-03-13
 tags:
   - post
   - AI

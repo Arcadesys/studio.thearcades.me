@@ -108,7 +108,7 @@ layout: base.njk
     <h2 class="text-2xl font-display font-bold mb-8 gradient-text inline-block">More Posts</h2>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {%- for post in collections.post | reverse | limit(2) -%}
+      {%- for post in collections.publishedPosts | limit(2) -%}
         {% if post.url != page.url %}
           <a href="{{ post.url }}" class="card hover:-translate-y-2 transition duration-300 flex flex-col h-full group">
             {% if post.data.image %}

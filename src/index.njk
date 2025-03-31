@@ -101,7 +101,7 @@ title: Home | The Arcades' Studio
     <h2 class="text-3xl font-display font-bold mb-8 gradient-text inline-block">Latest Posts</h2>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {%- for post in collections.post | reverse | limit(3) -%}
+      {%- for post in collections.publishedPosts | limit(3) -%}
         <a href="{{ post.url }}" class="card hover:-translate-y-2 transition duration-300 flex flex-col h-full group">
           {% if post.data.image %}
             <div class="h-48 bg-gray-100 dark:bg-gray-700 overflow-hidden">

@@ -69,6 +69,11 @@ module.exports = function(eleventyConfig) {
     return array.filter(callback);
   });
   
+  // Add filter to filter posts by tag
+  eleventyConfig.addFilter("filterByTag", function(posts, tag) {
+    return posts.filter(post => post.data.tags && post.data.tags.includes(tag));
+  });
+  
   // Add YouTube shortcode
   eleventyConfig.addShortcode("youtube", function(id, title = "", startTime = 0) {
     const safeTitle = title || "YouTube video";

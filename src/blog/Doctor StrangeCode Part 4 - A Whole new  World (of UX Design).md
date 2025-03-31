@@ -1,7 +1,7 @@
 ---
 layout: "post.njk"
 title: "Doctor StrangeCode Part 4 - A Whole new World (of UX Design)"
-date: "2024-03-24"
+date: "2025-03-24"
 author: "Austen Tucker"
 description: "I have no idea what I'm doing (but I'll figure it out as I go)"
 image: "/img/blog/blindtabUI.jpg"

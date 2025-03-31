@@ -28,7 +28,7 @@ eleventyComputed:
   </div>
   
   <div class="space-y-8">
-    {%- for post in collections[tag] | reverse -%}
+    {%- for post in collections.publishedPosts | filterByTag(tag) -%}
       <article class="card hover:-translate-y-2 transition duration-300 border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 group">
         <div class="flex flex-col md:flex-row">
           {% if post.data.image %}
@@ -89,7 +89,7 @@ eleventyComputed:
       </article>
     {%- endfor -%}
     
-    {% if collections[tag].length === 0 %}
+    {% if collections.publishedPosts | filterByTag(tag) | length === 0 %}
       <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-medium dark:shadow-dark-medium text-center border-2 border-transparent hover:border-arcades-blue dark:hover:border-blue-500 transition-all duration-300">
         <div class="flex flex-col items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 dark:text-gray-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

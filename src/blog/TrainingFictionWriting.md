@@ -2,7 +2,7 @@
 layout: post.njk
 title: "Training Fiction Writing with AI"
 description: "How I used AI to level up my writing game"
-date: 2024-03-15
+date: 2025-03-15
 author: Austen Tucker
 tags:
   - post

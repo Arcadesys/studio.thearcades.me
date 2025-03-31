@@ -2,7 +2,7 @@
 layout: post.njk
 title: "Custom Prompts for Fun and Profit"
 subtitle: "AKA: Adventures in Cartoon-Human Interface Design"
-date: 2024-03-16
+date: 2025-03-16
 image: /img/toon-app-masthead.svg
 author: Max Arcade and Austen Tucker
 tags:
